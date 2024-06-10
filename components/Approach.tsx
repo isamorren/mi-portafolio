@@ -7,33 +7,28 @@ const Approach = () => {
   return (
     <section className="w-full py-20">
       <h1 className="heading">
-        My <span className="text-purple">approach</span>
+        Mi <span className="text-purple">Metodología</span>
       </h1>
       <div className="my-20 flex flex-col lg:flex-row items-center justify-center w-full gap-4">
         <Card
-          title="Planning & Strategy"
-          icon={<AceternityIcon order="Phase 1" />}
-          des="We'll collaborate to map out your website's goals, target audience, 
-          and key functionalities. We'll discuss things like site structure, 
-          navigation, and content requirements."
+          title="Planificación y Estrategia"
+          icon={<AceternityIcon order="Etapa 1" />}
+          des="Colaboraremos para definir los objetivos de su sitio web, público objetivo y funcionalidades clave. Discutiremos aspectos como la estructura del sitio, navegación y requisitos de contenido."
         >
           <CanvasRevealEffect
             animationSpeed={5.1}
-            containerClassName="bg-emerald-900 rounded-3xl overflow-hidden"
+            containerClassName="bg-purple-900 rounded-3xl overflow-hidden"
           />
         </Card>
         <Card
-          title="Development & Progress Update"
-          icon={<AceternityIcon order="Phase 2" />}
-          des="Once we agree on the plan, I cue my lofi playlist and dive into
-          coding. From initial sketches to polished code, I keep you updated
-          every step of the way."
+          title="Desarrollo y Actualización del Progreso"
+          icon={<AceternityIcon order="Etapa 2" />}
+          des="Una vez que estemos de acuerdo con el plan, me sumerjo en la programación. Desde los bocetos iniciales hasta el código pulido, te mantengo informado en cada paso del camino."
         >
           <CanvasRevealEffect
             animationSpeed={3}
             containerClassName="bg-pink-900 rounded-3xl overflow-hidden"
             colors={[
-              // change the colors of the
               [255, 166, 158],
               [221, 255, 247],
             ]}
@@ -41,11 +36,9 @@ const Approach = () => {
           />
         </Card>
         <Card
-          title="Development & Launch"
-          icon={<AceternityIcon order="Phase 3" />}
-          des="This is where the magic happens! Based on the approved design, 
-          I'll translate everything into functional code, building your website
-          from the ground up."
+          title="Desarrollo y Lanzamiento"
+          icon={<AceternityIcon order="Etapa 3" />}
+          des="¡Aquí es donde ocurre la magia! Basado en el diseño aprobado, traduciré todo en código funcional, construyendo tu sitio web desde cero."
         >
           <CanvasRevealEffect
             animationSpeed={3}

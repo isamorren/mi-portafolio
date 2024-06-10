@@ -50,8 +50,8 @@ export const BentoGridItem = ({
   titleClassName?: string;
   spareImg?: string;
 }) => {
-  const leftLists = ["Java", "ReactJS", "Typescript"];
-  const rightLists = ["NextJS", "RESTful API", "Figma"];
+  const leftLists = ["Java", "ReactJS", "JavaScript"];
+  const rightLists = ["Typescript", "MKT", "Figma"];
 
   const [copied, setCopied] = useState(false);
 
@@ -65,7 +65,7 @@ export const BentoGridItem = ({
   };
 
   const handleCopy = () => {
-    const text = "hsu@jsmastery.pro";
+    const text = "isamorrenc08@gmail.com";
     navigator.clipboard.writeText(text);
     setCopied(true);
   };
@@ -161,7 +161,7 @@ export const BentoGridItem = ({
                 className={`absolute -bottom-5 right-0 ${copied ? "block" : "block"
                   }`}
               >
-                <Lottie options={defaultOptions} height={200} width={400} />
+                {/* <Lottie options={defaultOptions} height={200} width={400} /> */}
               </div>
 
               <MagicButton

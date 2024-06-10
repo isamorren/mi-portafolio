@@ -1,7 +1,6 @@
 export const navItems = [
     { name: "Acerca de mi", link: "#acercademi" },
     { name: "Proyectos", link: "#proyectos" },
-    { name: "Testimonios", link: "#testimonios" },
     { name: "Contacto", link: "#contacto" },
   ];
   
@@ -18,7 +17,7 @@ export const navItems = [
     },
     {
       id: 2,
-      title: "Soy flexible para comunicarme en diferentes zonas horarias",
+      title: "Comunicación inmediata",
       description: "",
       className: "lg:col-span-2 md:col-span-3 md:row-span-2",
       imgClassName: "",
@@ -49,7 +48,7 @@ export const navItems = [
   
     {
       id: 5,
-      title: "Actualmente aprendiendo para ejecutar en proyectos",
+      title: "Proyectos tecnológicos escalables",
       description: "Código mantenible",
       className: "md:col-span-3 md:row-span-2",
       imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
@@ -173,31 +172,24 @@ export const navItems = [
   export const workExperience = [
     {
       id: 1,
-      title: "Frontend Engineer Intern",
-      desc: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
+      title: "Python Developer",
+      desc: "Desarrollé un sistema de simulación y monitorización usando Python y Linux, aplicando técnicas de programación orientada a objetos y utilizando Pandas y Matplotlib para análisis y visualización de datos en tiempo real.",
       className: "md:col-span-2",
       thumbnail: "/exp1.svg",
     },
     {
       id: 2,
-      title: "Mobile App Dev - JSM Tech",
-      desc: "Designed and developed mobile app for both iOS & Android platforms using React Native.",
+      title: "Full Stack Java Developer Junior",
+      desc: "Creé un e-commerce en Java y Spring Boot, utilizando HTML, CSS, JavaScript y Bootstrap, con seguridad de APIs via JWT, gestión de datos SQL, pruebas de software y control de versiones con GitHub.",
       className: "md:col-span-2",
       thumbnail: "/exp2.svg",
     },
     {
       id: 3,
-      title: "Freelance App Dev Project",
-      desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
+      title: "Web Developer",
+      desc: "Desarrollé un sitio web en WordPress que mejoró la conversión de clientes en un 25%, aumentó el tiempo de usuario en un 20% y redujo los tiempos de carga en un 30% gracias a técnicas de optimización. Además, diseñé interfaces personalizadas que elevaron la retención de clientes en un 15% y proporcioné capacitación y soporte técnico con una tasa de resolución del 95% en 24 horas.",
       className: "md:col-span-2",
-      thumbnail: "/exp3.svg",
-    },
-    {
-      id: 4,
-      title: "Lead Frontend Developer",
-      desc: "Developed and maintained user-facing features using modern frontend technologies.",
-      className: "md:col-span-2",
-      thumbnail: "/exp4.svg",
+      thumbnail: "/exp2.svg",
     },
   ];
   

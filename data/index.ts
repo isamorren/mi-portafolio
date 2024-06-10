@@ -1,14 +1,14 @@
 export const navItems = [
-    { name: "About", link: "#about" },
-    { name: "Projects", link: "#projects" },
-    { name: "Testimonials", link: "#testimonials" },
-    { name: "Contact", link: "#contact" },
+    { name: "Acerca de mi", link: "#acercademi" },
+    { name: "Proyectos", link: "#proyectos" },
+    { name: "Testimonios", link: "#testimonios" },
+    { name: "Contacto", link: "#contacto" },
   ];
   
   export const gridItems = [
     {
       id: 1,
-      title: "I prioritize client collaboration, fostering open communication ",
+      title: "Priorizo la comunicación con mis clientes",
       description: "",
       className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
       imgClassName: "w-full h-full",
@@ -18,7 +18,7 @@ export const navItems = [
     },
     {
       id: 2,
-      title: "I'm very flexible with time zone communications",
+      title: "Soy flexible para comunicarme en diferentes zonas horarias",
       description: "",
       className: "lg:col-span-2 md:col-span-3 md:row-span-2",
       imgClassName: "",
@@ -28,8 +28,8 @@ export const navItems = [
     },
     {
       id: 3,
-      title: "My tech stack",
-      description: "I constantly try to improve",
+      title: "Habilidades Técnicas",
+      description: "Nunca paro de aprender",
       className: "lg:col-span-2 md:col-span-3 md:row-span-2",
       imgClassName: "",
       titleClassName: "justify-center",
@@ -47,19 +47,19 @@ export const navItems = [
       spareImg: "/b4.svg",
     },
   
-/*     {
+    {
       id: 5,
-      title: "Currently building a JS Animation library",
+      title: "Actualmente aprendiendo para ejecutar en proyectos",
       description: "The Inside Scoop",
       className: "md:col-span-3 md:row-span-2",
       imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
       titleClassName: "justify-center md:justify-start lg:justify-center",
       img: "/b5.svg",
       spareImg: "/grid.svg",
-    }, */
+    },
     {
       id: 6,
-      title: "Do you want to start a project together?",
+      title: "Quieres empezar un proyecto?",
       description: "",
       className: "lg:col-span-2 md:col-span-3 md:row-span-1",
       imgClassName: "",

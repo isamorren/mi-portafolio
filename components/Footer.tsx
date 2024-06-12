@@ -6,23 +6,19 @@ import MagicButton from "./MagicButton";
 
 const Footer = () => {
   return (
+    <section id="footer">
     <footer className="w-full pt-20 pb-10" id="contact">
       <div className="w-full absolute left-0 -bottom-72 min-h-96">
-        <img
-          src="/footer-grid.svg"
-          alt="grid"
-          className="w-full h-full opacity-50 "
-        />
       </div>
 
       <div className="flex flex-col items-center">
         <h1 className="heading lg:max-w-[45vw]">
-          Listo para llevar tu presencia digital al siguiente nivel?
+          ¿Listo para llevar tu presencia digital al siguiente nivel?
         </h1>
         <p className="text-white-200 md:mt-10 my-5 text-center">
-          Comunicate conmigo para discutir como puedo ayudarte a cumplir tus metas.
+          Comunícate conmigo para discutir como puedo ayudarte a cumplir tus metas.
         </p>
-        <a href="mailto:isamorrenc08@gmail.com">
+        <a href="mailto:isamorenoc08@gmail.com">
           <MagicButton
             title="Comunícate conmigo"
             icon={<FaLocationArrow />}
@@ -37,16 +33,20 @@ const Footer = () => {
 
         <div className="flex items-center md:gap-3 gap-6">
           {socialMedia.map((info) => (
-            <div
-              key={info.id}
-              className="w-10 h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 bg-black-200 rounded-lg border border-black-300"
-            >
+            <a
+            key={info.id}
+            href={info.link}  // Usar el enlace desde el objeto socialMedia
+            target="_blank"  // Abre el enlace en una nueva pestaña
+            rel="noopener noreferrer"  // Añade seguridad para los enlaces externos
+            className="w-10 h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 bg-black-200 rounded-lg border border-black-300"
+          >
               <img src={info.img} alt="icons" width={20} height={20} />
-            </div>
+            </a>
           ))}
         </div>
       </div>
     </footer>
+    </section>
   );
 };
 

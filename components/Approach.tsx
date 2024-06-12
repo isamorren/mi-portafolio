@@ -13,17 +13,21 @@ const Approach = () => {
         <Card
           title="Planificación y Estrategia"
           icon={<AceternityIcon order="Etapa 1" />}
-          des="Colaboraremos para definir los objetivos de su sitio web, público objetivo y funcionalidades clave. Discutiremos aspectos como la estructura del sitio, navegación y requisitos de contenido."
+          des="Colaboraremos para definir los objetivos de tu sitio web, target y funcionalidades clave. Discutiremos aspectos como la estructura del sitio, navegación y requisitos de contenido."
         >
           <CanvasRevealEffect
-            animationSpeed={5.1}
+            animationSpeed={3}
             containerClassName="bg-purple-900 rounded-3xl overflow-hidden"
+            colors={[
+              [255, 166, 158],
+              [221, 255, 247],
+            ]}
           />
         </Card>
         <Card
           title="Desarrollo y Actualización del Progreso"
           icon={<AceternityIcon order="Etapa 2" />}
-          des="Una vez que estemos de acuerdo con el plan, me sumerjo en la programación. Desde los bocetos iniciales hasta el código pulido, te mantengo informado en cada paso del camino."
+          des="Una vez que estemos de acuerdo con el plan, me sumerjo en la programación. Desde los bocetos iniciales hasta el código final, te mantengo informado en cada paso del camino."
         >
           <CanvasRevealEffect
             animationSpeed={3}
@@ -42,8 +46,11 @@ const Approach = () => {
         >
           <CanvasRevealEffect
             animationSpeed={3}
-            containerClassName="bg-sky-600 rounded-3xl overflow-hidden"
-            colors={[[125, 211, 252]]}
+            containerClassName="bg-pink-900 rounded-3xl overflow-hidden"
+            colors={[
+              [255, 166, 158],
+              [221, 255, 247],
+            ]}
           />
         </Card>
       </div>

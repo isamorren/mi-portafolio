@@ -94,8 +94,8 @@ export function initWebVitals() {
 
 // Función para reportar métricas personalizadas
 export function reportCustomMetric(name: string, value: number) {
-  const metric: WebVitalsMetric = {
-    name,
+  const metric: Metric = {
+    name: name as any, // Permitir nombres personalizados
     value,
     delta: value,
     id: `custom-${Date.now()}`,
@@ -104,7 +104,7 @@ export function reportCustomMetric(name: string, value: number) {
     entries: [],
   }
   
-  sendToAnalytics(metric)
+  sendToAnalytics(metric as WebVitalsMetric)
 }
 
 // Helper para medir el tiempo de carga de componentes

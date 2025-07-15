@@ -1,3 +1,4 @@
+import { withSentryConfig } from '@sentry/nextjs'
 import createMDX from '@next/mdx'
 import remarkGfm from 'remark-gfm'
 import rehypePrismPlus from 'rehype-prism-plus'
@@ -71,7 +72,7 @@ const nextConfig = {
               font-src 'self' fonts.gstatic.com data:;
               img-src 'self' data: https: blob:;
               media-src 'self' https: blob:;
-              connect-src 'self' https: wss: *.vercel-insights.com *.vercel.live *.google-analytics.com analytics.google.com;
+              connect-src 'self' https: wss: *.vercel-insights.com *.vercel.live *.google-analytics.com analytics.google.com *.sentry.io *.ingest.sentry.io;
               frame-src 'self' *.vercel.live;
               object-src 'none';
               base-uri 'self';
@@ -94,4 +95,31 @@ const withMDX = createMDX({
   },
 });
 
-export default withMDX(nextConfig);
+// Sentry configuration for error monitoring
+const sentryWebpackPluginOptions = {
+  // For all available options, see:
+  // https://github.com/getsentry/sentry-webpack-plugin#options
+
+  // Estos valores son configurados automáticamente por la integración de Vercel
+  org: process.env.SENTRY_ORG,
+  project: process.env.SENTRY_PROJECT,
+  
+  // Only upload source maps in production
+  silent: true,
+  
+  // Hides source maps from generated client bundles
+  hideSourceMaps: true,
+  
+  // Automatically release management
+  authToken: process.env.SENTRY_AUTH_TOKEN,
+  
+  // Disables source map uploading during local development
+  disableServerWebpackPlugin: process.env.NODE_ENV !== 'production',
+  disableClientWebpackPlugin: process.env.NODE_ENV !== 'production',
+};
+
+// Export the configuration wrapped with Sentry and MDX
+export default withSentryConfig(
+  withMDX(nextConfig),
+  sentryWebpackPluginOptions
+);

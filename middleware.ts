@@ -31,7 +31,9 @@ const allowedBots = [
 
 export function middleware(request: NextRequest) {
   // Obtener información de la solicitud
-  const ip = request.ip || request.headers.get('x-forwarded-for')?.split(',')[0] || 'unknown'
+  const ip = request.headers.get('x-forwarded-for')?.split(',')[0] || 
+             request.headers.get('x-real-ip') || 
+             'unknown'
   const userAgent = request.headers.get('user-agent') || ''
   const url = request.nextUrl
   

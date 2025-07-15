@@ -19,7 +19,7 @@
     "framer-motion": "^11.2.10",
     "lucide-react": "^0.365.0",
     "mini-svg-data-uri": "^1.4.4",
-    "next": "14.2.3",
+    "next": "15.0.3",
     "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
@@ -39,8 +39,8 @@
     "@types/react-lottie": "^1.2.10",
     "@types/stats.js": "^0.17.3",
     "autoprefixer": "^10.4.19",
-    "eslint": "^8.57.0",
-    "eslint-config-next": "^14.1.4",
+    "eslint": "^9.15.0",
+    "eslint-config-next": "^15.0.3",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.4",
     "typescript": "^5.4.5"
@@ -49,12 +49,22 @@
     "debug": "^4.3.5",
     "semver": "^7.6.2",
     "tar": "^6.2.1",
-    "undici": "^5.28.4"
+    "undici": "^5.28.4",
+    "glob": "^10.3.10",
+    "rimraf": "^5.0.5",
+    "uuid": "^10.0.0",
+    "core-js": "^3.35.0",
+    "eslint": "^9.15.0"
   },
   "resolutions": {
     "debug": "^4.3.5",
     "semver": "^7.6.2",
     "tar": "^6.2.1",
-    "undici": "^5.28.4"
+    "undici": "^5.28.4",
+    "glob": "^10.3.10",
+    "rimraf": "^5.0.5",
+    "uuid": "^10.0.0",
+    "core-js": "^3.35.0",
+    "eslint": "^9.15.0"
   }
 }

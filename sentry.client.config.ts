@@ -15,18 +15,18 @@ if (process.env.NODE_ENV === 'production') {
     // Setting this option to true will print useful information to the console while you're setting up Sentry
     debug: false,
     
-    // Replay configuration for session recordings (optional)
-    replaysOnErrorSampleRate: 1.0,
-    replaysSessionSampleRate: 0.1,
+    // Replay configuration for session recordings (optional) - DISABLED temporarily
+    // replaysOnErrorSampleRate: 1.0,
+    // replaysSessionSampleRate: 0.1,
     
     // You can remove this option if you're not planning to use the Sentry Session Replay feature
-    integrations: [
-      Sentry.replayIntegration({
-        // Mask all text and inputs for privacy
-        maskAllText: true,
-        blockAllMedia: true,
-      }),
-    ],
+    // integrations: [
+    //   Sentry.replayIntegration({
+    //     // Mask all text and inputs for privacy
+    //     maskAllText: true,
+    //     blockAllMedia: true,
+    //   }),
+    // ],
     
     // Ignore common browser extension errors and non-app errors
     ignoreErrors: [

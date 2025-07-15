@@ -67,7 +67,7 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: `
               default-src 'self';
-              script-src 'self' 'unsafe-inline' 'unsafe-eval' *.vercel-scripts.com *.vercel-insights.com *.googletagmanager.com *.google-analytics.com;
+              script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: *.vercel-scripts.com *.vercel-insights.com *.googletagmanager.com *.google-analytics.com;
               style-src 'self' 'unsafe-inline' fonts.googleapis.com;
               font-src 'self' fonts.gstatic.com data:;
               img-src 'self' data: https: blob:;
@@ -119,7 +119,7 @@ const sentryWebpackPluginOptions = {
 };
 
 // Export the configuration wrapped with Sentry and MDX
-export default withSentryConfig(withSentryConfig(withMDX(nextConfig), sentryWebpackPluginOptions), {
+export default withSentryConfig(withMDX(nextConfig), {
 // For all available options, see:
 // https://www.npmjs.com/package/@sentry/webpack-plugin#options
 

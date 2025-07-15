@@ -194,7 +194,7 @@ const About = () => {
             >
               {/* Download CV Button */}
               <motion.a
-                href="/CV ISABEL CRISTINA MORENO CONTRERAS.pdf"
+                href="/CV ISABEL CRISTINA MORENO CONTRERAS.pdf?v=2025"
                 download="CV_Isabel_Moreno.pdf"
                 className="group relative bg-[#6667AB] text-white px-6 py-3 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 overflow-hidden inline-block"
                 whileHover={{ y: -2 }}

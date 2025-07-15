@@ -1,11 +1,18 @@
-import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
 import { useReducedMotion, getAnimationConfig, getScrollAnimationConfig } from "@/hooks/useReducedMotion";
 
 const Landing = () => {
   const [isVisible, setIsVisible] = useState(true);
   const shouldReduce = useReducedMotion();
   const animConfig = getAnimationConfig(shouldReduce);
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  // Parallax for floating elements
+  const { scrollY } = useScroll();
+  const y1 = useTransform(scrollY, [0, 500], [0, shouldReduce ? 0 : -100]);
+  const y2 = useTransform(scrollY, [0, 500], [0, shouldReduce ? 0 : -50]);
+  const y3 = useTransform(scrollY, [0, 500], [0, shouldReduce ? 0 : -150]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -161,10 +168,152 @@ const Landing = () => {
         </motion.div>
       </motion.div>
 
-      {/* Decorative Elements */}
-      <div className="absolute top-1/4 left-10 w-1 h-1 bg-white/30 rounded-full animate-pulse" />
-      <div className="absolute top-1/3 right-20 w-1 h-1 bg-white/40 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
-      <div className="absolute bottom-1/4 left-1/4 w-1 h-1 bg-white/20 rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
+      {/* Floating Film Reels with Parallax */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Layer 1 - Slow moving film reels */}
+        <motion.div style={{ y: y1 }} className="absolute inset-0">
+          <motion.div
+            className="absolute top-[15%] left-[10%] opacity-10"
+            animate={shouldReduce ? {} : { rotate: 360 }}
+            transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+          >
+            <svg width="80" height="80" viewBox="0 0 80 80">
+              <circle cx="40" cy="40" r="35" fill="none" stroke="#B4A7D6" strokeWidth="1" />
+              <circle cx="40" cy="40" r="10" fill="#B4A7D6" />
+              {[0, 60, 120, 180, 240, 300].map((angle) => (
+                <rect
+                  key={angle}
+                  x="35"
+                  y="5"
+                  width="10"
+                  height="20"
+                  fill="#B4A7D6"
+                  transform={`rotate(${angle} 40 40)`}
+                />
+              ))}
+            </svg>
+          </motion.div>
+          
+          <motion.div
+            className="absolute bottom-[20%] right-[15%] opacity-10"
+            animate={shouldReduce ? {} : { rotate: -360 }}
+            transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
+          >
+            <svg width="60" height="60" viewBox="0 0 60 60">
+              <circle cx="30" cy="30" r="25" fill="none" stroke="#E4C7D6" strokeWidth="1" />
+              <circle cx="30" cy="30" r="8" fill="#E4C7D6" />
+              {[0, 60, 120, 180, 240, 300].map((angle) => (
+                <rect
+                  key={angle}
+                  x="27"
+                  y="5"
+                  width="6"
+                  height="15"
+                  fill="#E4C7D6"
+                  transform={`rotate(${angle} 30 30)`}
+                />
+              ))}
+            </svg>
+          </motion.div>
+        </motion.div>
+        
+        {/* Layer 2 - Medium speed hearts/pixels */}
+        <motion.div style={{ y: y2 }} className="absolute inset-0">
+          {/* Floating hearts */}
+          <motion.div
+            className="absolute top-[30%] right-[25%]"
+            animate={shouldReduce ? {} : {
+              y: [-10, 10, -10],
+              opacity: [0.15, 0.25, 0.15]
+            }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <svg width="30" height="30" viewBox="0 0 30 30" className="text-[#E4C7D6]">
+              <path
+                d="M15 25C15 25 3 17 3 9C3 5 6 2 9.5 2C12 2 14 3.5 15 5C16 3.5 18 2 20.5 2C24 2 27 5 27 9C27 17 15 25 15 25Z"
+                fill="currentColor"
+                opacity="0.3"
+              />
+            </svg>
+          </motion.div>
+          
+          <motion.div
+            className="absolute bottom-[40%] left-[20%]"
+            animate={shouldReduce ? {} : {
+              y: [10, -10, 10],
+              opacity: [0.1, 0.2, 0.1]
+            }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          >
+            <svg width="25" height="25" viewBox="0 0 25 25" className="text-[#B4A7D6]">
+              <path
+                d="M12.5 22C12.5 22 2 15 2 8C2 4.5 4.5 2 7.5 2C9.5 2 11 3 12.5 4.5C14 3 15.5 2 17.5 2C20.5 2 23 4.5 23 8C23 15 12.5 22 12.5 22Z"
+                fill="currentColor"
+                opacity="0.3"
+              />
+            </svg>
+          </motion.div>
+        </motion.div>
+        
+        {/* Layer 3 - Fast pixels/dots */}
+        <motion.div style={{ y: y3 }} className="absolute inset-0">
+          {/* Floating pixels like in logo */}
+          {[...Array(15)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute"
+              style={{
+                left: `${10 + (i * 6)}%`,
+                top: `${20 + ((i * 13) % 60)}%`
+              }}
+              animate={shouldReduce ? {} : {
+                y: [-5, 5, -5],
+                opacity: [0.1, 0.3, 0.1],
+                scale: [1, 1.2, 1]
+              }}
+              transition={{
+                duration: 4 + (i % 3),
+                repeat: Infinity,
+                delay: i * 0.3,
+                ease: "easeInOut"
+              }}
+            >
+              <div 
+                className="w-1 h-1 rounded-full"
+                style={{
+                  backgroundColor: i % 3 === 0 ? '#B4A7D6' : i % 3 === 1 ? '#E4C7D6' : '#6667AB',
+                  boxShadow: `0 0 ${4 + (i % 3)}px currentColor`
+                }}
+              />
+            </motion.div>
+          ))}
+          
+          {/* Film strip perforations */}
+          <div className="absolute left-0 top-0 bottom-0 w-8">
+            {[...Array(20)].map((_, i) => (
+              <motion.div
+                key={`left-${i}`}
+                className="absolute w-2 h-3 bg-white/5 rounded-sm"
+                style={{ top: `${i * 5}%` }}
+                animate={shouldReduce ? {} : { opacity: [0.05, 0.1, 0.05] }}
+                transition={{ duration: 3, repeat: Infinity, delay: i * 0.1 }}
+              />
+            ))}
+          </div>
+          
+          <div className="absolute right-0 top-0 bottom-0 w-8">
+            {[...Array(20)].map((_, i) => (
+              <motion.div
+                key={`right-${i}`}
+                className="absolute w-2 h-3 bg-white/5 rounded-sm right-0"
+                style={{ top: `${i * 5}%` }}
+                animate={shouldReduce ? {} : { opacity: [0.05, 0.1, 0.05] }}
+                transition={{ duration: 3, repeat: Infinity, delay: i * 0.1 + 0.5 }}
+              />
+            ))}
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 };

@@ -210,4 +210,54 @@
   .filter-vintage {
     filter: contrast(1.1) brightness(1.05) sepia(0.2);
   }
+  
+  /* Cinematic hero animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: 0.2; }
+  }
+  
+  @keyframes shimmer-light {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(200%); }
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 4s ease-in-out infinite;
+  }
+  
+  /* Gradient radial for mouse light effect */
+  .bg-gradient-radial {
+    background: radial-gradient(circle, var(--tw-gradient-stops));
+  }
+  
+  /* Professional parallax layers */
+  .parallax-layer {
+    will-change: transform;
+    transform: translateZ(0);
+  }
+  
+  /* Cinematic overlay effects */
+  .cinematic-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(26, 26, 47, 0.9) 0%,
+      transparent 50%,
+      rgba(26, 26, 47, 0.9) 100%
+    );
+  }
+  
+  /* Professional glow effect */
+  .glow-professional {
+    filter: drop-shadow(0 0 20px rgba(102, 103, 171, 0.3));
+  }
 }

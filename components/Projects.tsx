@@ -321,7 +321,7 @@ const Projects = () => {
                         <div className="grid grid-cols-2 gap-2">
                           {project.tools.map((tool) => (
                             <div key={tool} className="flex items-center gap-2">
-                              <span className="text-xl">{project.techIcons[tool]}</span>
+                              <span className="text-xl">{project.techIcons[tool as keyof typeof project.techIcons]}</span>
                               <span className="text-sm text-[#322F68]/70">{tool}</span>
                             </div>
                           ))}
@@ -506,7 +506,7 @@ const Projects = () => {
                                   whileHover={{ scale: 1.05 }}
                                   transition={{ type: "spring", stiffness: 300 }}
                                 >
-                                  <span className="text-2xl">{project.techIcons[tool]}</span>
+                                  <span className="text-2xl">{project.techIcons[tool as keyof typeof project.techIcons]}</span>
                                   <span className="text-sm text-[#322F68] font-medium">{tool}</span>
                                 </motion.div>
                               ))}

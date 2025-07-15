@@ -1,0 +1,369 @@
+---
+title: "TypeScript: Mejores prácticas y patrones avanzados"
+date: "2025-01-05"
+excerpt: "Domina TypeScript con estas mejores prácticas y patrones avanzados que mejorarán la calidad y mantenibilidad de tu código."
+tags: ["TypeScript", "JavaScript", "Best Practices"]
+prev: "optimizacion-rendimiento-react"
+---
+
+TypeScript ha revolucionado el desarrollo en JavaScript al agregar tipado estático opcional. En este artículo, exploraremos mejores prácticas y patrones avanzados que te ayudarán a escribir código TypeScript más robusto y mantenible.
+
+## 1. Configuración estricta
+
+Comienza con una configuración TypeScript estricta:
+
+```json
+{
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true
+  }
+}
+```
+
+## 2. Tipos vs Interfaces
+
+### Cuándo usar Type
+
+```typescript
+// Uniones y tipos primitivos
+type Status = 'pending' | 'approved' | 'rejected'
+type ID = string | number
+
+// Tipos de utilidad
+type Readonly<T> = {
+  readonly [P in keyof T]: T[P]
+}
+
+// Tuplas
+type Coordinate = [number, number]
+```
+
+### Cuándo usar Interface
+
+```typescript
+// Objetos y clases
+interface User {
+  id: string
+  name: string
+  email: string
+}
+
+// Extensión
+interface Admin extends User {
+  permissions: string[]
+}
+
+// Implementación
+class UserService implements IUserService {
+  // ...
+}
+```
+
+## 3. Tipos genéricos avanzados
+
+### Constraints en genéricos
+
+```typescript
+interface HasLength {
+  length: number
+}
+
+function logLength<T extends HasLength>(item: T): T {
+  console.log(item.length)
+  return item
+}
+
+// Funciona con strings, arrays, etc.
+logLength("hello")
+logLength([1, 2, 3])
+logLength({ length: 10, value: "test" })
+```
+
+### Tipos condicionales
+
+```typescript
+type IsArray<T> = T extends any[] ? true : false
+
+type Test1 = IsArray<string[]>  // true
+type Test2 = IsArray<number>    // false
+
+// Tipo de utilidad más complejo
+type Flatten<T> = T extends Array<infer U> ? U : T
+
+type Str = Flatten<string[]>    // string
+type Num = Flatten<number>      // number
+```
+
+## 4. Utility Types personalizados
+
+### DeepPartial
+
+```typescript
+type DeepPartial<T> = {
+  [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P]
+}
+
+interface Config {
+  api: {
+    url: string
+    timeout: number
+    headers: {
+      authorization: string
+    }
+  }
+}
+
+// Permite actualización parcial profunda
+function updateConfig(config: DeepPartial<Config>) {
+  // ...
+}
+
+updateConfig({
+  api: {
+    headers: {
+      authorization: "new-token"
+    }
+  }
+})
+```
+
+### DeepReadonly
+
+```typescript
+type DeepReadonly<T> = {
+  readonly [P in keyof T]: T[P] extends object ? DeepReadonly<T[P]> : T[P]
+}
+
+const config: DeepReadonly<Config> = {
+  api: {
+    url: "https://api.example.com",
+    timeout: 5000,
+    headers: {
+      authorization: "token"
+    }
+  }
+}
+
+// Error: Cannot assign to 'authorization' because it is a read-only property
+// config.api.headers.authorization = "new-token"
+```
+
+## 5. Type Guards
+
+### User-defined type guards
+
+```typescript
+interface Cat {
+  type: 'cat'
+  meow(): void
+}
+
+interface Dog {
+  type: 'dog'
+  bark(): void
+}
+
+type Animal = Cat | Dog
+
+// Type guard
+function isCat(animal: Animal): animal is Cat {
+  return animal.type === 'cat'
+}
+
+function makeSound(animal: Animal) {
+  if (isCat(animal)) {
+    animal.meow() // TypeScript sabe que es Cat
+  } else {
+    animal.bark() // TypeScript sabe que es Dog
+  }
+}
+```
+
+### Type guards con in operator
+
+```typescript
+interface Bird {
+  fly(): void
+  layEggs(): void
+}
+
+interface Fish {
+  swim(): void
+  layEggs(): void
+}
+
+function move(animal: Bird | Fish) {
+  if ('fly' in animal) {
+    animal.fly()
+  } else {
+    animal.swim()
+  }
+}
+```
+
+## 6. Template Literal Types
+
+```typescript
+type HTTPMethod = 'GET' | 'POST' | 'PUT' | 'DELETE'
+type APIEndpoint = '/users' | '/posts' | '/comments'
+
+// Genera todas las combinaciones posibles
+type APIRoute = `${HTTPMethod} ${APIEndpoint}`
+// "GET /users" | "GET /posts" | "GET /comments" | "POST /users" | ...
+
+// Uso práctico
+type EventName = 'click' | 'focus' | 'blur'
+type EventHandler<T extends EventName> = `on${Capitalize<T>}`
+// "onClick" | "onFocus" | "onBlur"
+```
+
+## 7. Mapped Types avanzados
+
+### Key Remapping
+
+```typescript
+type Getters<T> = {
+  [K in keyof T as `get${Capitalize<string & K>}`]: () => T[K]
+}
+
+interface Person {
+  name: string
+  age: number
+}
+
+type PersonGetters = Getters<Person>
+// {
+//   getName: () => string
+//   getAge: () => number
+// }
+```
+
+### Filtering con Mapped Types
+
+```typescript
+// Filtra solo propiedades string
+type StringProperties<T> = {
+  [K in keyof T as T[K] extends string ? K : never]: T[K]
+}
+
+interface User {
+  id: number
+  name: string
+  email: string
+  isActive: boolean
+}
+
+type UserStrings = StringProperties<User>
+// { name: string; email: string }
+```
+
+## 8. Patrón Builder con tipos
+
+```typescript
+class QueryBuilder<T = {}> {
+  private query: T
+
+  constructor(query: T = {} as T) {
+    this.query = query
+  }
+
+  select<K extends string>(fields: K[]): QueryBuilder<T & { select: K[] }> {
+    return new QueryBuilder({ ...this.query, select: fields })
+  }
+
+  where<K extends string, V>(
+    field: K,
+    value: V
+  ): QueryBuilder<T & { where: { [key in K]: V } }> {
+    return new QueryBuilder({
+      ...this.query,
+      where: { ...((this.query as any).where || {}), [field]: value }
+    })
+  }
+
+  build(): T {
+    return this.query
+  }
+}
+
+// Uso con inferencia de tipos completa
+const query = new QueryBuilder()
+  .select(['id', 'name'])
+  .where('age', 25)
+  .where('city', 'Madrid')
+  .build()
+// Tipo inferido correctamente
+```
+
+## 9. Discriminated Unions para manejo de estados
+
+```typescript
+type LoadingState = {
+  status: 'loading'
+}
+
+type SuccessState<T> = {
+  status: 'success'
+  data: T
+}
+
+type ErrorState = {
+  status: 'error'
+  error: Error
+}
+
+type AsyncState<T> = LoadingState | SuccessState<T> | ErrorState
+
+function handleState<T>(state: AsyncState<T>) {
+  switch (state.status) {
+    case 'loading':
+      return 'Cargando...'
+    case 'success':
+      return `Datos: ${JSON.stringify(state.data)}`
+    case 'error':
+      return `Error: ${state.error.message}`
+  }
+}
+```
+
+## 10. Decoradores (experimental)
+
+```typescript
+// Decorador de método para logging
+function Log(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+  const originalMethod = descriptor.value
+
+  descriptor.value = function (...args: any[]) {
+    console.log(`Llamando ${propertyKey} con argumentos:`, args)
+    const result = originalMethod.apply(this, args)
+    console.log(`${propertyKey} retornó:`, result)
+    return result
+  }
+
+  return descriptor
+}
+
+class Calculator {
+  @Log
+  add(a: number, b: number): number {
+    return a + b
+  }
+}
+```
+
+## Conclusión
+
+TypeScript es mucho más que agregar tipos a JavaScript. Cuando se usa correctamente, proporciona herramientas poderosas para crear aplicaciones más seguras y mantenibles. Las técnicas presentadas aquí te ayudarán a aprovechar al máximo TypeScript en tus proyectos.
+
+Recuerda que el objetivo no es usar todas estas características, sino elegir las que aporten valor real a tu proyecto y equipo.

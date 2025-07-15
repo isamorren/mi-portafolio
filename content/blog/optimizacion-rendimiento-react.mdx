@@ -1,0 +1,274 @@
+---
+title: "Optimización de rendimiento en React: Técnicas avanzadas"
+date: "2025-01-10"
+excerpt: "Aprende técnicas avanzadas para optimizar el rendimiento de tus aplicaciones React, desde memoización hasta lazy loading y code splitting."
+tags: ["React", "Performance", "JavaScript"]
+prev: "introduccion-nextjs-14"
+next: "typescript-mejores-practicas"
+---
+
+El rendimiento es crucial en las aplicaciones web modernas. Una aplicación lenta puede resultar en una mala experiencia de usuario y pérdida de conversiones. En este artículo, exploraremos técnicas avanzadas para optimizar aplicaciones React.
+
+## 1. React.memo y useMemo
+
+### React.memo
+
+Evita re-renderizados innecesarios de componentes:
+
+```jsx
+const ExpensiveComponent = React.memo(({ data, onClick }) => {
+  console.log('Renderizando componente costoso')
+  
+  return (
+    <div>
+      {data.map(item => (
+        <div key={item.id} onClick={() => onClick(item)}>
+          {item.name}
+        </div>
+      ))}
+    </div>
+  )
+}, (prevProps, nextProps) => {
+  // Comparación personalizada
+  return prevProps.data.length === nextProps.data.length
+})
+```
+
+### useMemo
+
+Memoriza cálculos costosos:
+
+```jsx
+function DataProcessor({ items, filter }) {
+  const processedData = useMemo(() => {
+    console.log('Procesando datos...')
+    return items
+      .filter(item => item.category === filter)
+      .map(item => ({
+        ...item,
+        processed: heavyComputation(item)
+      }))
+  }, [items, filter])
+  
+  return <DataList data={processedData} />
+}
+```
+
+## 2. useCallback para funciones estables
+
+Previene la recreación de funciones en cada render:
+
+```jsx
+function TodoList({ todos, onToggle }) {
+  const handleToggle = useCallback((id) => {
+    onToggle(id)
+  }, [onToggle])
+  
+  return todos.map(todo => (
+    <TodoItem
+      key={todo.id}
+      todo={todo}
+      onToggle={handleToggle}
+    />
+  ))
+}
+```
+
+## 3. Code Splitting y Lazy Loading
+
+### Lazy Loading de componentes
+
+```jsx
+const HeavyChart = lazy(() => import('./components/HeavyChart'))
+
+function Dashboard() {
+  const [showChart, setShowChart] = useState(false)
+  
+  return (
+    <div>
+      <button onClick={() => setShowChart(true)}>
+        Mostrar gráfico
+      </button>
+      
+      {showChart && (
+        <Suspense fallback={<div>Cargando gráfico...</div>}>
+          <HeavyChart />
+        </Suspense>
+      )}
+    </div>
+  )
+}
+```
+
+### Route-based Code Splitting
+
+```jsx
+const routes = [
+  {
+    path: '/',
+    component: lazy(() => import('./pages/Home'))
+  },
+  {
+    path: '/dashboard',
+    component: lazy(() => import('./pages/Dashboard'))
+  },
+  {
+    path: '/profile',
+    component: lazy(() => import('./pages/Profile'))
+  }
+]
+```
+
+## 4. Virtualización de listas
+
+Para listas largas, usa react-window o react-virtualized:
+
+```jsx
+import { FixedSizeList } from 'react-window'
+
+function VirtualList({ items }) {
+  const Row = ({ index, style }) => (
+    <div style={style}>
+      {items[index].name}
+    </div>
+  )
+  
+  return (
+    <FixedSizeList
+      height={600}
+      itemCount={items.length}
+      itemSize={50}
+      width="100%"
+    >
+      {Row}
+    </FixedSizeList>
+  )
+}
+```
+
+## 5. Optimización de imágenes
+
+### Lazy loading de imágenes
+
+```jsx
+function OptimizedImage({ src, alt, ...props }) {
+  const [imageSrc, setImageSrc] = useState(null)
+  const imageRef = useRef()
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setImageSrc(src)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.1 }
+    )
+    
+    if (imageRef.current) {
+      observer.observe(imageRef.current)
+    }
+    
+    return () => observer.disconnect()
+  }, [src])
+  
+  return (
+    <img
+      ref={imageRef}
+      src={imageSrc || '/placeholder.jpg'}
+      alt={alt}
+      {...props}
+    />
+  )
+}
+```
+
+## 6. Debounce y Throttle
+
+### Debounce para inputs de búsqueda
+
+```jsx
+function SearchInput({ onSearch }) {
+  const [query, setQuery] = useState('')
+  
+  const debouncedSearch = useMemo(
+    () => debounce((value) => {
+      onSearch(value)
+    }, 300),
+    [onSearch]
+  )
+  
+  const handleChange = (e) => {
+    const value = e.target.value
+    setQuery(value)
+    debouncedSearch(value)
+  }
+  
+  return (
+    <input
+      type="text"
+      value={query}
+      onChange={handleChange}
+      placeholder="Buscar..."
+    />
+  )
+}
+```
+
+## 7. Context optimization
+
+Divide contextos grandes para evitar re-renders innecesarios:
+
+```jsx
+// En lugar de un contexto grande
+const AppContext = createContext()
+
+// Usa múltiples contextos específicos
+const UserContext = createContext()
+const ThemeContext = createContext()
+const SettingsContext = createContext()
+
+// O usa un patrón de selector
+function useAppContext(selector) {
+  const context = useContext(AppContext)
+  return useMemo(() => selector(context), [context, selector])
+}
+```
+
+## Herramientas de análisis
+
+### React DevTools Profiler
+
+Usa el Profiler para identificar componentes lentos:
+
+```jsx
+<Profiler id="Navigation" onRender={onRenderCallback}>
+  <Navigation />
+</Profiler>
+```
+
+### Web Vitals
+
+Monitorea métricas clave:
+
+```jsx
+import { getCLS, getFID, getFCP, getLCP, getTTFB } from 'web-vitals'
+
+function sendToAnalytics(metric) {
+  // Envía métricas a tu servicio de analytics
+  console.log(metric)
+}
+
+getCLS(sendToAnalytics)
+getFID(sendToAnalytics)
+getFCP(sendToAnalytics)
+getLCP(sendToAnalytics)
+getTTFB(sendToAnalytics)
+```
+
+## Conclusión
+
+La optimización del rendimiento en React es un proceso continuo. No todas las optimizaciones son necesarias para cada aplicación. Mide primero, identifica cuellos de botella reales, y luego aplica las técnicas apropiadas.
+
+Recuerda: la optimización prematura es la raíz de todos los males. Enfócate primero en escribir código limpio y mantenible, luego optimiza donde sea necesario.

@@ -2,12 +2,19 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 const Navigation = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [activeSection, setActiveSection] = useState("");
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const [currentPath, setCurrentPath] = useState("");
+
+  useEffect(() => {
+    // Set initial path
+    setCurrentPath(window.location.pathname);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,6 +62,13 @@ const Navigation = () => {
       label: "Contacto", 
       number: "03",
       description: "Conversemos"
+    },
+    { 
+      href: "/blog", 
+      label: "Blog", 
+      number: "04",
+      description: "Artículos técnicos",
+      isExternal: true
     }
   ];
 
@@ -74,7 +88,9 @@ const Navigation = () => {
       {/* Navigation items */}
       <div className="relative space-y-8">
         {navItems.map((item, index) => {
-          const isActive = activeSection === item.href.substring(1);
+          const isActive = item.isExternal 
+            ? currentPath.startsWith(item.href)
+            : activeSection === item.href.substring(1);
           const isHovered = hoveredItem === item.href;
           
           return (
@@ -115,15 +131,16 @@ const Navigation = () => {
               </AnimatePresence>
 
               {/* Navigation dot */}
-              <motion.a
-                href={item.href}
-                className="nav-link-fade relative w-6 h-6 rounded-full border-2 border-[#6667AB] bg-[#F6F4F9] cursor-pointer overflow-hidden group shadow-cinematic"
-                whileHover={{ scale: 1.2 }}
-                whileTap={{ scale: 0.9 }}
-                style={{
-                  backgroundColor: isActive ? "#6667AB" : "#F6F4F9"
-                }}
-              >
+              {item.isExternal ? (
+                <Link href={item.href} passHref legacyBehavior>
+                  <motion.a
+                    className="nav-link-fade relative w-6 h-6 rounded-full border-2 border-[#6667AB] bg-[#F6F4F9] cursor-pointer overflow-hidden group shadow-cinematic"
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 0.9 }}
+                    style={{
+                      backgroundColor: isActive ? "#6667AB" : "#F6F4F9"
+                    }}
+                  >
                 {/* Active state indicator */}
                 <motion.div
                   className="absolute inset-0 bg-[#6667AB] rounded-full"
@@ -158,7 +175,54 @@ const Navigation = () => {
                     />
                   )}
                 </AnimatePresence>
-              </motion.a>
+                  </motion.a>
+                </Link>
+              ) : (
+                <motion.a
+                  href={item.href}
+                  className="nav-link-fade relative w-6 h-6 rounded-full border-2 border-[#6667AB] bg-[#F6F4F9] cursor-pointer overflow-hidden group shadow-cinematic"
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
+                  style={{
+                    backgroundColor: isActive ? "#6667AB" : "#F6F4F9"
+                  }}
+                >
+                  {/* Active state indicator */}
+                  <motion.div
+                    className="absolute inset-0 bg-[#6667AB] rounded-full"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: isActive ? 1 : 0 }}
+                    transition={{ type: "spring", damping: 20 }}
+                  />
+                  
+                  {/* Number indicator */}
+                  <motion.span
+                    className="absolute inset-0 flex items-center justify-center text-xs font-bold"
+                    style={{ 
+                      color: isActive ? "white" : "#6667AB" 
+                    }}
+                    animate={{ 
+                      scale: isActive ? 1.1 : 1,
+                      color: isActive ? "#ffffff" : "#6667AB"
+                    }}
+                  >
+                    {item.number}
+                  </motion.span>
+
+                  {/* Hover ripple effect */}
+                  <AnimatePresence>
+                    {isHovered && !isActive && (
+                      <motion.div
+                        className="absolute inset-0 bg-[#E4C7D6] rounded-full"
+                        initial={{ scale: 0, opacity: 0.5 }}
+                        animate={{ scale: 1.5, opacity: 0 }}
+                        exit={{ scale: 0, opacity: 0 }}
+                        transition={{ duration: 0.5 }}
+                      />
+                    )}
+                  </AnimatePresence>
+                </motion.a>
+              )}
 
               {/* Progress indicator line */}
               <motion.div
@@ -185,9 +249,10 @@ const Navigation = () => {
             className="h-full bg-gradient-to-r from-[#6667AB] to-[#E4C7D6]"
             initial={{ width: "0%" }}
             animate={{ 
-              width: activeSection === "about" ? "33%" : 
-                     activeSection === "projects" ? "66%" : 
-                     activeSection === "contact-final" ? "100%" : "0%"
+              width: activeSection === "about" ? "25%" : 
+                     activeSection === "projects" ? "50%" : 
+                     activeSection === "contact-final" ? "75%" : 
+                     currentPath.startsWith("/blog") ? "100%" : "0%"
             }}
             transition={{ duration: 0.5 }}
           />

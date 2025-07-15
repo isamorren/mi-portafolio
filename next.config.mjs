@@ -1,5 +1,10 @@
+import createMDX from '@next/mdx'
+import remarkGfm from 'remark-gfm'
+import rehypePrismPlus from 'rehype-prism-plus'
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   images: {
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: 60,
@@ -22,4 +27,12 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+const withMDX = createMDX({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [[rehypePrismPlus, { defaultLanguage: 'js' }]],
+  },
+});
+
+export default withMDX(nextConfig);

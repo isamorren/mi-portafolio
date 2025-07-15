@@ -258,7 +258,7 @@ const Projects = () => {
                   key={tool}
                   className="px-3 py-1.5 bg-[#F6F4F9]/70 backdrop-blur-sm rounded-full text-xs font-medium text-[#322F68] border border-[#B4A7D6]/30 hover:bg-[#F6F4F9] hover:border-[#6667AB] hover:scale-105 transition-all duration-300 cursor-default flex items-center gap-1"
                 >
-                  <span className="text-sm">{project.techIcons[tool]}</span>
+                  <span className="text-sm">{project.techIcons[tool as keyof typeof project.techIcons]}</span>
                   {tool}
                 </span>
               ))}
@@ -393,7 +393,7 @@ const Projects = () => {
                         key={tool}
                         className="flex items-center gap-2 px-4 py-2 bg-[#D9D7EC]/30 rounded-xl border border-[#B4A7D6]/30"
                       >
-                        <span className="text-lg">{project.techIcons[tool]}</span>
+                        <span className="text-lg">{project.techIcons[tool as keyof typeof project.techIcons]}</span>
                         <span className="font-medium text-[#322F68]">{tool}</span>
                       </div>
                     ))}

@@ -1,0 +1,75 @@
+{
+  "name": "Isabel Moreno - Portfolio",
+  "short_name": "IM Portfolio",
+  "description": "Portfolio de Isabel Moreno, desarrolladora full stack especializada en experiencias digitales creativas",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F6F4F9",
+  "theme_color": "#6667AB",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["portfolio", "developer", "technology"],
+  "lang": "es-ES",
+  "dir": "ltr",
+  "screenshots": [
+    {
+      "src": "/screenshot-wide.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/screenshot-narrow.jpg",
+      "sizes": "640x1136",
+      "type": "image/jpeg",
+      "form_factor": "narrow"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Proyectos",
+      "short_name": "Proyectos",
+      "description": "Ver mis proyectos",
+      "url": "/#projects",
+      "icons": [
+        {
+          "src": "/favicon.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "Contacto",
+      "short_name": "Contacto",
+      "description": "Contactar conmigo",
+      "url": "/#contact-final",
+      "icons": [
+        {
+          "src": "/favicon.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
+    }
+  ]
+}

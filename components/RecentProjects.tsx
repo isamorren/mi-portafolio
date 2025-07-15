@@ -1,7 +1,7 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { FaLocationArrow } from "react-icons/fa6";
+import Image from "next/image";
 
 import { projects } from "@/data";
 import { PinContainer } from "./ui/Pin";
@@ -26,12 +26,21 @@ const RecentProjects = () => {
                   className="relative w-full h-full overflow-hidden lg:rounded-3xl"
                   style={{ backgroundColor: "#13162D" }}
                 >
-                  <img src="/bg.png" alt="bgimg" />
+                  <Image
+                    src="/bg.png"
+                    alt="background pattern"
+                    fill
+                    className="object-cover"
+                    priority={item.id <= 2}
+                  />
                 </div>
-                <img
+                <Image
                   src={item.img}
-                  alt="cover"
-                  className="z-10 relative bottom-0"
+                  alt={`${item.title} preview`}
+                  width={400}
+                  height={300}
+                  className="z-10 relative bottom-0 object-contain"
+                  priority={item.id <= 2}
                 />
               </div>
 

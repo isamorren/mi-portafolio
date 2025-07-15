@@ -21,7 +21,7 @@ const Landing = () => {
   };
 
   return (
-    <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
+    <section className="relative h-screen w-full flex items-center justify-center overflow-hidden" role="banner" aria-label="Sección principal de bienvenida">
       {/* Vintage Film Background */}
       <div className="absolute inset-0">
         {/* Simulated vintage film background with CSS patterns */}
@@ -56,7 +56,7 @@ const Landing = () => {
         }} />
         
         {/* Translucent overlay for text contrast */}
-        <div className="absolute inset-0 bg-[#1A1A2F]/60" />
+        <div className="absolute inset-0 bg-[#1A1A2F]/85" />
       </div>
 
       {/* Content */}
@@ -99,7 +99,8 @@ const Landing = () => {
         >
           <button
             onClick={scrollToContent}
-            className="group relative px-8 py-4 bg-[#6667AB] text-white font-serif-display text-lg rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
+            className="group relative px-8 py-4 bg-[#6667AB] text-white font-serif-display text-lg rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden focus:outline-none focus:ring-4 focus:ring-[#6667AB]/50"
+            aria-label="Explorar el contenido del portfolio"
           >
             {/* Gradient overlay for hover */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#B4A7D6] to-[#6667AB] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -128,6 +129,7 @@ const Landing = () => {
           onClick={scrollToContent}
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          aria-label="Hacer scroll para ver más contenido"
         >
           <span className="text-white/80 text-sm mb-2 font-serif-display group-hover:text-white transition-colors">
             Scroll

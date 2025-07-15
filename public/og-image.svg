@@ -1,0 +1,56 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1A1A2F;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#322F68;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6667AB;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#E4C7D6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#B4A7D6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  
+  <!-- Pattern overlay -->
+  <rect width="1200" height="630" fill="#F6F4F9" opacity="0.05"/>
+  
+  <!-- Code brackets decorative -->
+  <text x="100" y="200" font-family="monospace" font-size="120" fill="#E4C7D6" opacity="0.2">{</text>
+  <text x="1050" y="450" font-family="monospace" font-size="120" fill="#E4C7D6" opacity="0.2">}</text>
+  
+  <!-- Main content container -->
+  <g transform="translate(600, 315)">
+    <!-- Name -->
+    <text x="0" y="-50" text-anchor="middle" font-family="serif" font-size="80" font-weight="bold" fill="white">
+      Isabel Moreno
+    </text>
+    
+    <!-- Title -->
+    <text x="0" y="20" text-anchor="middle" font-family="sans-serif" font-size="30" fill="url(#textGrad)">
+      Full Stack Developer &amp; Creative Technologist
+    </text>
+    
+    <!-- Tagline -->
+    <text x="0" y="80" text-anchor="middle" font-family="serif" font-size="24" font-style="italic" fill="#D9D7EC">
+      "Entre el código y la emoción, construyo belleza funcional"
+    </text>
+    
+    <!-- Divider line -->
+    <line x1="-150" y1="120" x2="150" y2="120" stroke="#E4C7D6" stroke-width="2" opacity="0.5"/>
+    
+    <!-- Keywords -->
+    <text x="0" y="160" text-anchor="middle" font-family="monospace" font-size="18" fill="#B4A7D6">
+      código • estrategia • emoción
+    </text>
+  </g>
+  
+  <!-- Decorative elements -->
+  <circle cx="150" cy="150" r="3" fill="#E4C7D6" opacity="0.6"/>
+  <circle cx="1050" cy="150" r="3" fill="#E4C7D6" opacity="0.6"/>
+  <circle cx="150" cy="480" r="3" fill="#E4C7D6" opacity="0.6"/>
+  <circle cx="1050" cy="480" r="3" fill="#E4C7D6" opacity="0.6"/>
+</svg>

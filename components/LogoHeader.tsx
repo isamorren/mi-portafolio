@@ -283,8 +283,8 @@ const LogoHeader = () => {
                     animate={isHovered ? {
                       opacity: [0, 0.8, 0],
                       scale: [0, 1.5, 0],
-                      x: [0, (Math.random() - 0.5) * 100],
-                      y: [0, (Math.random() - 0.5) * 100]
+                      x: [0, ((i + 1) * 20 - 50)],
+                      y: [0, ((i + 1) * 15 - 40)]
                     } : {}}
                     transition={{
                       duration: 2,

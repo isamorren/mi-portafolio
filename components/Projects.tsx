@@ -16,10 +16,10 @@ const Projects = () => {
       solution: "Marketplace con alma verde",
       tools: ["React", "Spring Boot", "PostgreSQL", "Stripe"],
       learning: "El comercio puede ser un acto de amor al planeta",
-      gradient: "from-[#F6F4F9] via-[#D9D7EC] to-[#F6F4F9]",
+      gradient: "from-[#E4C7D6] to-[#B4A7D6]",
       icon: "🌱",
       color: "#6667AB",
-      link: "https://github.com/isamorren/eco-marketplace",
+      link: "https://github.com/isabel-moreno22/eco-marketplace",
       techIcons: {
         "React": "⚛️",
         "Spring Boot": "🍃",
@@ -35,10 +35,10 @@ const Projects = () => {
       solution: "Plataforma que armoniza perfiles",
       tools: ["Next.js", "Node.js", "MongoDB", "Socket.io"],
       learning: "La tecnología humaniza cuando escucha",
-      gradient: "from-[#D9D7EC] via-[#B4A7D6] to-[#D9D7EC]",
+      gradient: "from-[#B4A7D6] to-[#D9D7EC]",
       icon: "✨",
-      color: "#6667AB",
-      link: "https://github.com/isamorren/talent-hub",
+      color: "#322F68",
+      link: "https://github.com/isabel-moreno22/talent-hub",
       techIcons: {
         "Next.js": "▲",
         "Node.js": "🟢",
@@ -49,134 +49,134 @@ const Projects = () => {
     {
       id: 3,
       title: "Sistema de reservas",
-      verse: "El tiempo convertido en experiencias memorables",
-      problem: "Agendas caóticas, clientes frustrados",
-      solution: "Calendario inteligente con notificaciones",
-      tools: ["Vue.js", "Express", "MySQL", "Twilio"],
-      learning: "La organización es un regalo de respeto",
-      gradient: "from-[#F6F4F9] via-[#E4C7D6] to-[#F6F4F9]",
+      verse: "El tiempo ordenado en compases perfectos",
+      problem: "Agendas caóticas, citas perdidas",
+      solution: "Calendario inteligente y fluido",
+      tools: ["Vue.js", "Django", "Redis", "PostgreSQL"],
+      learning: "La organización es un arte cuando es intuitiva",
+      gradient: "from-[#D9D7EC] to-[#E4C7D6]",
       icon: "📅",
-      color: "#E4C7D6",
-      link: "https://github.com/isamorren/smart-booking",
+      color: "#6667AB",
+      link: "https://github.com/isabel-moreno22/smart-booking",
       techIcons: {
         "Vue.js": "💚",
-        "Express": "🚂",
-        "MySQL": "🐬",
-        "Twilio": "📱"
+        "Django": "🎸",
+        "Redis": "📍",
+        "PostgreSQL": "🐘"
       }
     },
     {
       id: 4,
       title: "Red social educativa",
-      verse: "Donde el conocimiento fluye como conversación",
-      problem: "Aprendizaje aislado y desmotivador",
-      solution: "Comunidad que celebra cada progreso",
-      tools: ["React Native", "Django", "Redis", "AWS"],
-      learning: "Aprender juntos multiplica la sabiduría",
-      gradient: "from-[#F6F4F9] via-[#D9D7EC] to-[#F6F4F9]",
+      verse: "Aprendizaje compartido en armonía digital",
+      problem: "Conocimiento aislado en silos",
+      solution: "Comunidad que crece aprendiendo",
+      tools: ["React", "GraphQL", "Node.js", "AWS"],
+      learning: "Enseñar es aprender dos veces",
+      gradient: "from-[#E4C7D6] to-[#D9D7EC]",
       icon: "📚",
-      color: "#6667AB",
-      link: "https://github.com/isamorren/edu-connect",
+      color: "#322F68",
+      link: "https://github.com/isabel-moreno22/edu-network",
       techIcons: {
-        "React Native": "📱",
-        "Django": "🐍",
-        "Redis": "⚡",
+        "React": "⚛️",
+        "GraphQL": "◈",
+        "Node.js": "🟢",
         "AWS": "☁️"
       }
     },
     {
       id: 5,
       title: "Dashboard analítico",
-      verse: "Datos que cuentan historias, no solo números",
-      problem: "Métricas sin contexto ni propósito",
-      solution: "Visualizaciones que inspiran decisiones",
-      tools: ["D3.js", "Python", "Tableau", "BigQuery"],
-      learning: "Los números cobran vida con el diseño correcto",
-      gradient: "from-[#D9D7EC] via-[#B4A7D6] to-[#D9D7EC]",
+      verse: "Datos que bailan en visualizaciones poéticas",
+      problem: "Métricas sin alma ni contexto",
+      solution: "Historias contadas con números",
+      tools: ["Angular", "D3.js", "Python", "Tableau"],
+      learning: "Los datos cobran vida cuando cuentan historias",
+      gradient: "from-[#B4A7D6] to-[#E4C7D6]",
       icon: "📊",
       color: "#6667AB",
-      link: "https://github.com/isamorren/data-stories",
+      link: "https://github.com/isabel-moreno22/data-stories",
       techIcons: {
+        "Angular": "🅰️",
         "D3.js": "📈",
         "Python": "🐍",
-        "Tableau": "📊",
-        "BigQuery": "🔍"
+        "Tableau": "📉"
       }
     },
     {
       id: 6,
       title: "App de meditación",
-      verse: "Tecnología que susurra calma en el caos digital",
-      problem: "Ansiedad en la era de notificaciones",
-      solution: "Oasis de paz en tu bolsillo",
-      tools: ["Flutter", "Firebase", "TensorFlow", "Audio API"],
-      learning: "El silencio también puede programarse",
-      gradient: "from-[#F6F4F9] via-[#D9D7EC] to-[#F6F4F9]",
-      icon: "🧘",
-      color: "#6667AB",
-      link: "https://github.com/isamorren/mindful-app",
+      verse: "Paz digital en un mundo acelerado",
+      problem: "Estrés constante, sin refugio",
+      solution: "Oasis de calma en tu bolsillo",
+      tools: ["React Native", "Firebase", "TensorFlow", "Spotify API"],
+      learning: "La tecnología puede ser un camino hacia la paz interior",
+      gradient: "from-[#D9D7EC] to-[#B4A7D6]",
+      icon: "🧘‍♀️",
+      color: "#322F68",
+      link: "https://github.com/isabel-moreno22/mindful-app",
       techIcons: {
-        "Flutter": "🦋",
+        "React Native": "📱",
         "Firebase": "🔥",
         "TensorFlow": "🧠",
-        "Audio API": "🎵"
+        "Spotify API": "🎵"
       }
     },
     {
       id: 7,
       title: "Portfolio inmersivo",
-      verse: "Donde el código se viste de gala para brillar",
-      problem: "CVs aburridos, talentos invisibles",
-      solution: "Experiencia 3D que cautiva recruiters",
-      tools: ["Three.js", "WebGL", "GSAP", "Blender"],
-      learning: "La primera impresión puede ser tridimensional",
-      gradient: "from-[#D9D7EC] via-[#E4C7D6] to-[#D9D7EC]",
+      verse: "Historias profesionales en 3D",
+      problem: "CVs planos, sin personalidad",
+      solution: "Experiencias interactivas memorables",
+      tools: ["Three.js", "React", "Blender", "GSAP"],
+      learning: "Tu historia merece ser contada con magia",
+      gradient: "from-[#E4C7D6] to-[#B4A7D6]",
       icon: "🎨",
-      color: "#E4C7D6",
-      link: "https://github.com/isamorren/3d-portfolio",
+      color: "#6667AB",
+      link: "https://github.com/isabel-moreno22/3d-portfolio",
       techIcons: {
         "Three.js": "🎲",
-        "WebGL": "🌐",
-        "GSAP": "✨",
-        "Blender": "🎨"
+        "React": "⚛️",
+        "Blender": "🎯",
+        "GSAP": "✨"
       }
     },
     {
       id: 8,
       title: "AI Content Studio",
-      verse: "Inteligencia artificial con corazón creativo",
-      problem: "Creación de contenido lenta y repetitiva",
-      solution: "Asistente que potencia, no reemplaza",
-      tools: ["OpenAI", "Langchain", "Pinecone", "FastAPI"],
-      learning: "La IA es mejor cuando colabora, no cuando suplanta",
-      gradient: "from-[#F6F4F9] via-[#B4A7D6] to-[#F6F4F9]",
+      verse: "Creatividad amplificada por inteligencia",
+      problem: "Bloqueo creativo, ideas repetitivas",
+      solution: "Co-creación con IA empática",
+      tools: ["Python", "OpenAI", "Svelte", "Supabase"],
+      learning: "La IA es más poderosa cuando colabora, no cuando reemplaza",
+      gradient: "from-[#B4A7D6] to-[#D9D7EC]",
       icon: "🤖",
-      color: "#6667AB",
-      link: "https://github.com/isamorren/ai-studio",
+      color: "#322F68",
+      link: "https://github.com/isabel-moreno22/ai-studio",
       techIcons: {
+        "Python": "🐍",
         "OpenAI": "🧠",
-        "Langchain": "🔗",
-        "Pinecone": "🌲",
-        "FastAPI": "⚡"
+        "Svelte": "🔥",
+        "Supabase": "⚡"
       }
     },
     {
       id: 9,
       title: "Crypto Wallet UX",
-      verse: "Finanzas descentralizadas para humanos normales",
-      problem: "Web3 intimidante para principiantes",
-      solution: "Interfaz que traduce complejidad en simplicidad",
-      tools: ["Web3.js", "Ethers", "MetaMask", "Hardhat"],
-      learning: "La adopción masiva necesita diseño empático",
-      gradient: "from-[#D9D7EC] via-[#B4A7D6] to-[#D9D7EC]",
+      verse: "Finanzas descentralizadas humanizadas",
+      problem: "Blockchain intimidante y complejo",
+      solution: "Interfaz amigable para todos",
+      tools: ["Web3.js", "React", "Solidity", "MetaMask"],
+      learning: "La complejidad técnica debe ser invisible para el usuario",
+      gradient: "from-[#D9D7EC] to-[#E4C7D6]",
       icon: "💎",
       color: "#6667AB",
-      link: "https://github.com/isamorren/simple-wallet",
+      link: "https://github.com/isabel-moreno22/friendly-wallet",
       techIcons: {
         "Web3.js": "🌐",
-        "Ethers": "⚡",
-        "MetaMask": "🦊",
-        "Hardhat": "⛑️"
+        "React": "⚛️",
+        "Solidity": "⟠",
+        "MetaMask": "🦊"
       }
     }
   ];
@@ -195,356 +195,377 @@ const Projects = () => {
     setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages);
   };
 
-  const ProjectCard = ({ project, index }: { project: typeof projects[0], index: number }) => (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -30 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="relative group"
-    >
-      {/* Main Card */}
-      <div
-        className={`relative bg-gradient-to-br ${project.gradient} rounded-3xl p-8 shadow-lg border border-[#F6F4F9]/60 overflow-hidden backdrop-blur-sm hover:shadow-xl transition-all duration-500 ease-out group-hover:scale-[1.01] group-hover:-translate-y-1`}
-        style={{
-          boxShadow: "0 8px 20px -5px rgba(0, 0, 0, 0.1), 0 4px 8px -5px rgba(0, 0, 0, 0.04)"
-        }}
-      >
-        {/* Album cover header */}
-        <div className="flex items-start justify-between mb-6">
-          <div className="flex-1">
-            <div className="text-5xl mb-4 inline-block group-hover:scale-105 transition-transform duration-300">
-              {project.icon}
-            </div>
-            <h3 className="font-serif-display text-2xl font-bold text-[#1A1A2F] mb-2">
-              {project.title}
-            </h3>
-            <p className="font-script text-lg text-[#322F68] italic leading-relaxed">
-&ldquo;{project.verse}&rdquo;
-            </p>
-          </div>
-          
-          {/* Animated vinyl record */}
-          <div
-            className="w-20 h-20 rounded-full bg-gradient-to-br from-[#1A1A2F] to-[#322F68] relative flex-shrink-0 ml-4 group-hover:rotate-45 transition-transform duration-700 ease-out"
-            style={{
-              boxShadow: "inset 0 2px 4px rgba(0,0,0,0.3), 0 4px 6px rgba(0,0,0,0.1)"
-            }}
-          >
-            <div className="absolute inset-2 rounded-full bg-gradient-to-br from-[#322F68] to-[#1A1A2F]" />
-            <div className="absolute inset-4 rounded-full bg-gradient-to-br from-[#322F68] to-[#1A1A2F]" />
-            <div className="absolute inset-6 rounded-full bg-gradient-to-br from-[#E4C7D6] to-[#B4A7D6]" />
-            <div className="absolute inset-[30px] rounded-full bg-white/10" />
-          </div>
-        </div>
-
-        {/* Track listing content */}
-        <div className="space-y-4 mb-8">
-          <div className="border-l-3 border-[#B4A7D6]/50 pl-4 hover:border-[#6667AB] hover:translate-x-1 transition-all duration-300">
-            <p className="text-sm font-semibold uppercase tracking-wider text-[#322F68] mb-1">Track 01: El problema</p>
-            <p className="text-[#322F68] leading-relaxed">{project.problem}</p>
-          </div>
-          
-          <div className="border-l-3 border-[#B4A7D6]/50 pl-4 hover:border-[#6667AB] hover:translate-x-1 transition-all duration-300">
-            <p className="text-sm font-semibold uppercase tracking-wider text-[#322F68] mb-1">Track 02: La solución</p>
-            <p className="text-[#322F68] leading-relaxed">{project.solution}</p>
-          </div>
-          
-          <div className="border-l-3 border-[#B4A7D6]/50 pl-4 hover:border-[#6667AB] hover:translate-x-1 transition-all duration-300">
-            <p className="text-sm font-semibold uppercase tracking-wider text-gray-700 mb-2">Feat. Tecnologías</p>
-            <div className="flex flex-wrap gap-2">
-              {project.tools.map((tool, i) => (
-                <span
-                  key={tool}
-                  className="px-3 py-1.5 bg-[#F6F4F9]/70 backdrop-blur-sm rounded-full text-xs font-medium text-[#322F68] border border-[#B4A7D6]/30 hover:bg-[#F6F4F9] hover:border-[#6667AB] hover:scale-105 transition-all duration-300 cursor-default flex items-center gap-1"
-                >
-                  <span className="text-sm">{project.techIcons[tool as keyof typeof project.techIcons]}</span>
-                  {tool}
-                </span>
-              ))}
-            </div>
-          </div>
-          
-          <div className="border-l-3 border-[#B4A7D6]/50 pl-4 hover:border-[#6667AB] hover:translate-x-1 transition-all duration-300">
-            <p className="text-sm font-semibold uppercase tracking-wider text-[#322F68] mb-1">Outro: Aprendizaje</p>
-            <p className="text-[#322F68] italic leading-relaxed">&ldquo;{project.learning}&rdquo;</p>
-          </div>
-        </div>
-
-        {/* CTA Button with modal trigger */}
-        <button
-          onClick={() => setSelectedProject(project.id)}
-          className="w-full py-4 rounded-2xl font-semibold text-white relative overflow-hidden group/btn shadow-lg hover:shadow-xl hover:scale-[1.01] hover:-translate-y-0.5 transition-all duration-300"
-          style={{ 
-            backgroundColor: project.color,
-            boxShadow: `0 4px 15px ${project.color}30`
-          }}
-        >
-          {/* Shimmer effect */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000" />
-          
-          {/* Button content */}
-          <span className="relative flex items-center justify-center gap-2">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <polygon points="5 3 19 12 5 21 5 3" />
-            </svg>
-            Ver más detalles
-          </span>
-        </button>
-
-        {/* Decorative elements */}
-        <div 
-          className="absolute -top-3 -right-3 w-10 h-10 rounded-full border-3 border-[#F6F4F9]/70 flex items-center justify-center"
-          style={{ backgroundColor: project.color + "20" }}
-        >
-          <span className="text-xs font-bold" style={{ color: project.color }}>
-            {String(index + 1 + currentPage * projectsPerPage).padStart(2, '0')}
-          </span>
-        </div>
-        
-        {/* Film perforations */}
-        <div className="absolute top-0 left-0 w-full h-2 flex justify-around opacity-10">
-          {[...Array(8)].map((_, i) => (
-            <div key={i} className="w-3 h-2 bg-[#1A1A2F] rounded-sm" />
+  return (
+    <section id="projects" className="relative py-20 px-6 overflow-hidden">
+      {/* Film strip decoration */}
+      <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-r from-[#322F68] to-[#6667AB] opacity-10">
+        <div className="h-full flex items-center justify-between px-8">
+          {[...Array(20)].map((_, i) => (
+            <div key={i} className="w-12 h-10 bg-[#322F68] opacity-20 rounded-sm" />
           ))}
         </div>
       </div>
-    </motion.div>
-  );
 
-  // Modal component
-  const ProjectModal = () => {
-    const project = projects.find(p => p.id === selectedProject);
-    if (!project) return null;
-
-    return (
-      <AnimatePresence>
-        {selectedProject && (
-          <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      <div className="relative z-10 max-w-7xl mx-auto">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16 mt-8"
+        >
+          <motion.p 
+            className="font-script text-3xl text-[#6667AB] mb-2"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelectedProject(null)}
+            transition={{ delay: 0.2 }}
           >
-            {/* Backdrop with blur */}
-            <motion.div 
-              className="absolute inset-0 bg-[#1A1A2F]/60 backdrop-blur-md"
+            Young and Beautiful
+          </motion.p>
+          <h2 className="font-serif-display text-5xl md:text-6xl text-[#322F68] mb-4">
+            Mis composiciones digitales
+          </h2>
+          <p className="text-lg text-[#322F68]/80 max-w-2xl mx-auto">
+            Cada proyecto es una melodía única donde el código y el diseño danzan juntos
+          </p>
+          <div className="w-24 h-0.5 bg-[#B4A7D6] mx-auto mt-6" />
+        </motion.div>
+
+        {/* Projects Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <AnimatePresence mode="wait">
+            {currentProjects.map((project, index) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -50 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="relative group"
+              >
+                <motion.div
+                  className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${project.gradient} p-6 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer`}
+                  whileHover={{ y: -5 }}
+                  onMouseEnter={() => setHoveredProject(project.id)}
+                  onMouseLeave={() => setHoveredProject(null)}
+                  onClick={() => setSelectedProject(project.id)}
+                >
+                  {/* Album number badge */}
+                  <div className="absolute top-4 right-4 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                    <span className="font-serif-display text-lg text-[#322F68]">
+                      {String(project.id).padStart(2, '0')}
+                    </span>
+                  </div>
+
+                  {/* Vinyl record decoration */}
+                  <motion.div 
+                    className="absolute -right-16 -top-16 w-48 h-48 opacity-10"
+                    animate={{
+                      rotate: hoveredProject === project.id ? 360 : 0
+                    }}
+                    transition={{
+                      duration: 3,
+                      ease: "linear",
+                      repeat: hoveredProject === project.id ? Infinity : 0
+                    }}
+                  >
+                    <div className="w-full h-full rounded-full bg-[#322F68]">
+                      <div className="absolute inset-4 rounded-full bg-[#6667AB]">
+                        <div className="absolute inset-4 rounded-full bg-[#322F68]">
+                          <div className="absolute inset-6 rounded-full bg-[#D9D7EC]" />
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Content */}
+                  <div className="relative z-10">
+                    <motion.div 
+                      className="text-4xl mb-4"
+                      animate={{ 
+                        scale: hoveredProject === project.id ? [1, 1.2, 1] : 1 
+                      }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {project.icon}
+                    </motion.div>
+
+                    <h3 className="font-serif-display text-2xl text-[#322F68] mb-2">
+                      {project.title}
+                    </h3>
+                    
+                    <p className="font-script text-lg text-[#6667AB] mb-6 italic">
+                      "{project.verse}"
+                    </p>
+
+                    {/* Track sections */}
+                    <div className="space-y-4">
+                      <div>
+                        <p className="text-xs text-[#322F68]/60 uppercase tracking-wider mb-1">
+                          Track 01: El problema
+                        </p>
+                        <p className="text-[#322F68]/80">{project.problem}</p>
+                      </div>
+
+                      <div>
+                        <p className="text-xs text-[#322F68]/60 uppercase tracking-wider mb-1">
+                          Track 02: La solución
+                        </p>
+                        <p className="text-[#322F68]/80">{project.solution}</p>
+                      </div>
+
+                      <div>
+                        <p className="text-xs text-[#322F68]/60 uppercase tracking-wider mb-2">
+                          Feat. Tecnologías
+                        </p>
+                        <div className="grid grid-cols-2 gap-2">
+                          {project.tools.map((tool) => (
+                            <div key={tool} className="flex items-center gap-2">
+                              <span className="text-xl">{project.techIcons[tool]}</span>
+                              <span className="text-sm text-[#322F68]/70">{tool}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="pt-2 border-t border-[#322F68]/10">
+                        <p className="text-xs text-[#322F68]/60 uppercase tracking-wider mb-1">
+                          Outro: Aprendizaje
+                        </p>
+                        <p className="text-sm text-[#322F68]/80 italic">
+                          "{project.learning}"
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Play button */}
+                    <motion.button
+                      className="absolute bottom-4 right-4 w-10 h-10 bg-[#6667AB] text-white rounded-full flex items-center justify-center shadow-lg"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      animate={{
+                        opacity: hoveredProject === project.id ? 1 : 0,
+                        y: hoveredProject === project.id ? 0 : 10
+                      }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      ▶
+                    </motion.button>
+                  </div>
+                </motion.div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </div>
+
+        {/* Pagination */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          className="flex items-center justify-center gap-4"
+        >
+          <button
+            onClick={prevPage}
+            className="w-12 h-12 rounded-full bg-[#D9D7EC] hover:bg-[#B4A7D6] transition-colors flex items-center justify-center text-[#322F68]"
+            aria-label="Página anterior"
+          >
+            ←
+          </button>
+
+          <div className="flex gap-2">
+            {[...Array(totalPages)].map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentPage(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  index === currentPage
+                    ? 'w-8 bg-[#6667AB]'
+                    : 'bg-[#D9D7EC] hover:bg-[#B4A7D6]'
+                }`}
+                aria-label={`Ir a página ${index + 1}`}
+              />
+            ))}
+          </div>
+
+          <button
+            onClick={nextPage}
+            className="w-12 h-12 rounded-full bg-[#D9D7EC] hover:bg-[#B4A7D6] transition-colors flex items-center justify-center text-[#322F68]"
+            aria-label="Página siguiente"
+          >
+            →
+          </button>
+        </motion.div>
+      </div>
+
+      {/* Modal for project details */}
+      <AnimatePresence>
+        {selectedProject && (
+          <>
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50"
+              onClick={() => setSelectedProject(null)}
             />
-            
-            {/* Modal content */}
             <motion.div
-              className="relative bg-[#F6F4F9] rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
-              initial={{ scale: 0.8, opacity: 0, y: 50 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.8, opacity: 0, y: 50 }}
-              transition={{ type: "spring", damping: 25 }}
-              onClick={(e) => e.stopPropagation()}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              className="fixed inset-x-4 top-[10%] bottom-[10%] max-w-4xl mx-auto bg-gradient-to-br from-[#F6F4F9] to-[#D9D7EC] rounded-3xl shadow-2xl z-50 overflow-y-auto"
             >
-              {/* Modal header with gradient */}
-              <div className={`bg-gradient-to-br ${project.gradient} p-8 rounded-t-3xl`}>
+              <div className="p-8">
                 <button
                   onClick={() => setSelectedProject(null)}
-                  className="absolute top-4 right-4 w-10 h-10 rounded-full bg-[#F6F4F9]/20 backdrop-blur-sm flex items-center justify-center hover:bg-[#F6F4F9]/30 transition-colors"
+                  className="absolute top-4 right-4 w-10 h-10 bg-white/50 rounded-full flex items-center justify-center hover:bg-white/70 transition-colors"
                 >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <line x1="18" y1="6" x2="6" y2="18" />
-                    <line x1="6" y1="6" x2="18" y2="18" />
-                  </svg>
+                  ✕
                 </button>
                 
-                <div className="text-center">
-                  <motion.div 
-                    className="text-6xl mb-4 inline-block"
-                    animate={{ rotate: [0, -10, 10, -10, 0] }}
-                    transition={{ duration: 1 }}
-                  >
-                    {project.icon}
-                  </motion.div>
-                  <h3 className="font-serif-display text-3xl font-bold text-[#1A1A2F] mb-2">
-                    {project.title}
-                  </h3>
-                  <p className="font-script text-xl text-[#322F68] italic">
-      &ldquo;{project.verse}&rdquo;
-                  </p>
-                </div>
-              </div>
-              
-              {/* Modal body */}
-              <div className="p-8 space-y-6">
-                <div>
-                  <h4 className="font-serif-display text-lg font-bold text-[#1A1A2F] mb-2">El desafío</h4>
-                  <p className="text-[#322F68] leading-relaxed">{project.problem}</p>
-                </div>
-                
-                <div>
-                  <h4 className="font-serif-display text-lg font-bold text-[#1A1A2F] mb-2">La solución creativa</h4>
-                  <p className="text-[#322F68] leading-relaxed">{project.solution}</p>
-                </div>
-                
-                <div>
-                  <h4 className="font-serif-display text-lg font-bold text-[#1A1A2F] mb-3">Stack tecnológico</h4>
-                  <div className="flex flex-wrap gap-3">
-                    {project.tools.map((tool) => (
-                      <div
-                        key={tool}
-                        className="flex items-center gap-2 px-4 py-2 bg-[#D9D7EC]/30 rounded-xl border border-[#B4A7D6]/30"
-                      >
-                        <span className="text-lg">{project.techIcons[tool as keyof typeof project.techIcons]}</span>
-                        <span className="font-medium text-[#322F68]">{tool}</span>
+                {(() => {
+                  const project = projects.find(p => p.id === selectedProject);
+                  if (!project) return null;
+                  
+                  return (
+                    <div>
+                      {/* Album Cover Header */}
+                      <div className="flex items-start gap-6 mb-8">
+                        <div className="relative">
+                          {/* Vinyl Record Visual */}
+                          <motion.div 
+                            className="w-32 h-32 relative"
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 4, ease: "linear", repeat: Infinity }}
+                          >
+                            <div className="w-full h-full rounded-full bg-[#322F68] shadow-xl">
+                              <div className="absolute inset-4 rounded-full bg-[#6667AB]">
+                                <div className="absolute inset-4 rounded-full bg-[#322F68]">
+                                  <div className="absolute inset-6 rounded-full bg-[#D9D7EC] flex items-center justify-center">
+                                    <span className="text-3xl">{project.icon}</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </motion.div>
+                        </div>
+                        
+                        <div className="flex-1">
+                          <div className="flex items-center gap-3 mb-2">
+                            <span className="text-sm text-[#6667AB] uppercase tracking-wider">
+                              Album {String(project.id).padStart(2, '0')}
+                            </span>
+                            <div className="flex-1 h-px bg-[#B4A7D6]/30" />
+                          </div>
+                          <h3 className="font-serif-display text-4xl text-[#322F68] mb-3">
+                            {project.title}
+                          </h3>
+                          <p className="font-script text-2xl text-[#6667AB] italic">
+                            "{project.verse}"
+                          </p>
+                        </div>
                       </div>
-                    ))}
-                  </div>
-                </div>
-                
-                <div className="bg-[#D9D7EC]/30 rounded-2xl p-6">
-                  <h4 className="font-serif-display text-lg font-bold text-[#1A1A2F] mb-2">Reflexión final</h4>
-                  <p className="text-[#322F68] italic leading-relaxed">&ldquo;{project.learning}&rdquo;</p>
-                </div>
-                
-                {/* Action button */}
-                <div className="pt-4">
-                  <motion.a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full py-3 rounded-xl font-semibold text-white text-center relative overflow-hidden group block"
-                    style={{ backgroundColor: project.color }}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                    <span className="relative">Ver en GitHub →</span>
-                  </motion.a>
-                </div>
+
+                      {/* Track Listing */}
+                      <div className="grid md:grid-cols-2 gap-8 mb-8">
+                        {/* Side A */}
+                        <div>
+                          <h4 className="font-serif-display text-xl text-[#322F68] mb-4 flex items-center gap-2">
+                            <span className="text-2xl">💿</span> Lado A: El Desafío
+                          </h4>
+                          <div className="space-y-4">
+                            <div className="bg-white/30 backdrop-blur-sm rounded-lg p-4">
+                              <p className="text-xs text-[#322F68]/60 uppercase tracking-wider mb-2">
+                                Track 01: El problema
+                              </p>
+                              <p className="text-[#322F68]">{project.problem}</p>
+                            </div>
+                            <div className="bg-white/30 backdrop-blur-sm rounded-lg p-4">
+                              <p className="text-xs text-[#322F68]/60 uppercase tracking-wider mb-2">
+                                Track 02: La solución
+                              </p>
+                              <p className="text-[#322F68]">{project.solution}</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Side B */}
+                        <div>
+                          <h4 className="font-serif-display text-xl text-[#322F68] mb-4 flex items-center gap-2">
+                            <span className="text-2xl">🎵</span> Lado B: La Técnica
+                          </h4>
+                          <div className="bg-white/30 backdrop-blur-sm rounded-lg p-4">
+                            <p className="text-xs text-[#322F68]/60 uppercase tracking-wider mb-3">
+                              Feat. Tecnologías
+                            </p>
+                            <div className="grid grid-cols-2 gap-3">
+                              {project.tools.map((tool) => (
+                                <motion.div 
+                                  key={tool} 
+                                  className="flex items-center gap-2 bg-white/50 rounded-lg p-2"
+                                  whileHover={{ scale: 1.05 }}
+                                  transition={{ type: "spring", stiffness: 300 }}
+                                >
+                                  <span className="text-2xl">{project.techIcons[tool]}</span>
+                                  <span className="text-sm text-[#322F68] font-medium">{tool}</span>
+                                </motion.div>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Outro Section */}
+                      <div className="bg-gradient-to-r from-[#E4C7D6]/20 to-[#B4A7D6]/20 rounded-lg p-6 mb-8">
+                        <p className="text-xs text-[#322F68]/60 uppercase tracking-wider mb-2 text-center">
+                          🎼 Outro: Aprendizaje
+                        </p>
+                        <p className="text-lg text-[#322F68] italic text-center font-script">
+                          "{project.learning}"
+                        </p>
+                      </div>
+
+                      {/* Album Credits / Actions */}
+                      <div className="flex flex-col sm:flex-row gap-4 items-center justify-between pt-6 border-t border-[#B4A7D6]/30">
+                        <div className="text-sm text-[#322F68]/60">
+                          <p>Producido por: Isabel Moreno</p>
+                          <p>Estudio: Code & Poetry Records</p>
+                        </div>
+                        
+                        <div className="flex gap-3">
+                          <motion.a 
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 bg-[#6667AB] text-white px-6 py-3 rounded-full hover:bg-[#322F68] transition-colors shadow-lg"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                          >
+                            <span>Escuchar en GitHub</span>
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                          </motion.a>
+                          
+                          <motion.button
+                            onClick={() => setSelectedProject(null)}
+                            className="px-6 py-3 border-2 border-[#6667AB] text-[#6667AB] rounded-full hover:bg-[#6667AB] hover:text-white transition-colors"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                          >
+                            Cerrar
+                          </motion.button>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })()}
               </div>
             </motion.div>
-          </motion.div>
+          </>
         )}
       </AnimatePresence>
-    );
-  };
-
-  return (
-    <>
-      <section id="projects" className="py-32 px-6 relative overflow-hidden bg-[#F6F4F9]">
-        {/* Subtle background pattern */}
-        <div 
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23322F68' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-          }}
-        />
-
-        <div className="relative z-10 max-w-7xl mx-auto">
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: -30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <p className="font-script text-3xl text-[#6667AB] mb-4">"Young and Beautiful"</p>
-            <h2 className="font-serif-display text-5xl md:text-7xl text-[#1A1A2F] mb-4">
-              Mis <span className="font-script italic text-[#6667AB]">composiciones</span> digitales
-            </h2>
-            <p className="text-xl text-[#322F68] max-w-2xl mx-auto">
-              Cada proyecto es una melodía única donde el código y el diseño danzan juntos
-            </p>
-            <motion.div 
-              className="w-24 h-0.5 bg-gradient-to-r from-transparent via-[#6667AB] to-transparent mx-auto mt-6"
-              initial={{ width: 0 }}
-              whileInView={{ width: 96 }}
-              transition={{ duration: 1, delay: 0.3 }}
-              viewport={{ once: true }}
-            />
-          </motion.div>
-
-          {/* Project cards with slide animation */}
-          <div className="relative">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentPage}
-                className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-                initial={{ opacity: 0, x: 100 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -100 }}
-                transition={{ 
-                  duration: 0.5,
-                  ease: "easeInOut"
-                }}
-              >
-                {currentProjects.map((project, index) => (
-                  <ProjectCard key={project.id} project={project} index={index} />
-                ))}
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Navigation */}
-            {totalPages > 1 && (
-              <div className="flex items-center justify-center gap-8 mt-12">
-                <motion.button
-                  onClick={prevPage}
-                  className="p-3 rounded-full bg-[#F6F4F9] shadow-md hover:shadow-lg transition-shadow"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M15 19l-7-7 7-7" stroke="#6667AB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </motion.button>
-
-                {/* Page indicators */}
-                <div className="flex gap-2">
-                  {[...Array(totalPages)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                        i === currentPage ? 'w-8 bg-[#6667AB]' : 'bg-[#B4A7D6]/50'
-                      }`}
-                      whileHover={{ scale: 1.2 }}
-                    />
-                  ))}
-                </div>
-
-                <motion.button
-                  onClick={nextPage}
-                  className="p-3 rounded-full bg-[#F6F4F9] shadow-md hover:shadow-lg transition-shadow"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M9 5l7 7-7 7" stroke="#6667AB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </motion.button>
-              </div>
-            )}
-          </div>
-
-          {/* Film projector decoration */}
-          <motion.div
-            className="absolute -bottom-20 -right-20 opacity-5"
-            animate={{ rotate: 360 }}
-            transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-          >
-            <svg width="200" height="200" viewBox="0 0 200 200" fill="none">
-              <circle cx="50" cy="50" r="40" stroke="#6667AB" strokeWidth="2"/>
-              <circle cx="150" cy="50" r="40" stroke="#6667AB" strokeWidth="2"/>
-              <rect x="30" y="90" width="140" height="80" stroke="#6667AB" strokeWidth="2" rx="10"/>
-              <circle cx="50" cy="50" r="10" fill="#6667AB"/>
-              <circle cx="150" cy="50" r="10" fill="#6667AB"/>
-            </svg>
-          </motion.div>
-        </div>
-      </section>
-      
-      {/* Modal */}
-      <ProjectModal />
-    </>
+    </section>
   );
 };
 

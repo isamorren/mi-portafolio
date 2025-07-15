@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { sanitizeText, isValidEmail } from "@/lib/security";
 
 const ContactFinal = () => {
   const [formData, setFormData] = useState({
@@ -16,6 +17,8 @@ const ContactFinal = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [showError, setShowError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -30,7 +33,7 @@ const ContactFinal = () => {
   const validateForm = () => {
     const newErrors = {
       name: !formData.name.trim(),
-      email: !formData.email.trim() || !/\S+@\S+\.\S+/.test(formData.email),
+      email: !formData.email.trim() || !isValidEmail(formData.email),
       message: !formData.message.trim()
     };
     
@@ -45,14 +48,51 @@ const ContactFinal = () => {
     
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: sanitizeText(formData.name, 100),
+          email: sanitizeText(formData.email, 254),
+          message: sanitizeText(formData.message, 1000)
+        })
+      });
+      
+      const data = await response.json();
+      
+      if (!response.ok) {
+        if (response.status === 429) {
+          setErrorMessage('Has enviado demasiados mensajes. Por favor, intenta más tarde.');
+        } else {
+          setErrorMessage(data.error || 'Error al enviar el mensaje');
+        }
+        setShowError(true);
+        setTimeout(() => {
+          setShowError(false);
+          setErrorMessage('');
+        }, 5000);
+        return;
+      }
+      
       setShowSuccess(true);
       setFormData({ name: '', email: '', message: '' });
       
       setTimeout(() => setShowSuccess(false), 5000);
-    }, 2000);
+      
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setErrorMessage('Error de conexión. Por favor, intenta nuevamente.');
+      setShowError(true);
+      setTimeout(() => {
+        setShowError(false);
+        setErrorMessage('');
+      }, 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -275,6 +315,22 @@ const ContactFinal = () => {
               >
                 <p className="text-white font-script text-2xl">
                   ¡Tu mensaje vuela hacia mí! 💌
+                </p>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Error message */}
+          <AnimatePresence>
+            {showError && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                className="text-center mt-6"
+              >
+                <p className="text-[#E4C7D6] font-serif-display text-lg">
+                  {errorMessage}
                 </p>
               </motion.div>
             )}

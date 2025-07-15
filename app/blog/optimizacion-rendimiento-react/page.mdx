@@ -1,11 +1,21 @@
----
-title: "Optimización de rendimiento en React: Técnicas avanzadas"
-date: "2025-01-10"
-excerpt: "Aprende técnicas avanzadas para optimizar el rendimiento de tus aplicaciones React, desde memoización hasta lazy loading y code splitting."
-tags: ["React", "Performance", "JavaScript"]
-prev: "introduccion-nextjs-14"
-next: "typescript-mejores-practicas"
----
+import BlogPostLayout from '@/components/BlogPostLayout'
+
+export const metadata = {
+  title: 'Optimización de rendimiento en React: Técnicas avanzadas | Isabel Moreno',
+  description: 'Aprende técnicas avanzadas para optimizar el rendimiento de tus aplicaciones React, desde memoización hasta lazy loading y code splitting.',
+}
+
+export const frontmatter = {
+  title: "Optimización de rendimiento en React: Técnicas avanzadas",
+  date: "2025-01-10",
+  excerpt: "Aprende técnicas avanzadas para optimizar el rendimiento de tus aplicaciones React, desde memoización hasta lazy loading y code splitting.",
+  tags: ["React", "Performance", "JavaScript"],
+  prev: "introduccion-nextjs-14",
+  next: "typescript-mejores-practicas",
+  slug: "optimizacion-rendimiento-react"
+}
+
+<BlogPostLayout frontmatter={frontmatter}>
 
 El rendimiento es crucial en las aplicaciones web modernas. Una aplicación lenta puede resultar en una mala experiencia de usuario y pérdida de conversiones. En este artículo, exploraremos técnicas avanzadas para optimizar aplicaciones React.
 
@@ -272,3 +282,5 @@ getTTFB(sendToAnalytics)
 La optimización del rendimiento en React es un proceso continuo. No todas las optimizaciones son necesarias para cada aplicación. Mide primero, identifica cuellos de botella reales, y luego aplica las técnicas apropiadas.
 
 Recuerda: la optimización prematura es la raíz de todos los males. Enfócate primero en escribir código limpio y mantenible, luego optimiza donde sea necesario.
+
+</BlogPostLayout>

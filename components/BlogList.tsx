@@ -3,7 +3,13 @@
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
-import type { PostMeta } from '@/lib/mdx'
+interface PostMeta {
+  title: string
+  date: string
+  excerpt: string
+  tags: string[]
+  slug: string
+}
 
 function formatDate(dateString: string) {
   const date = new Date(dateString)

@@ -1,10 +1,19 @@
 'use client'
 
 import Link from 'next/link'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
-import type { PostMeta } from '@/lib/mdx'
-import { MDXRemote } from 'next-mdx-remote'
+interface PostMeta {
+  title: string
+  date: string
+  excerpt: string
+  tags: string[]
+  slug: string
+  prev?: string
+  next?: string
+  [key: string]: any
+}
+import '../app/blog/blog.css'
 
 function formatDate(dateString: string) {
   const date = new Date(dateString)
@@ -15,12 +24,12 @@ function formatDate(dateString: string) {
   })
 }
 
-interface BlogPostProps {
+interface BlogPostLayoutProps {
   frontmatter: PostMeta
-  mdxSource: any
+  children: React.ReactNode
 }
 
-export default function BlogPost({ frontmatter, mdxSource }: BlogPostProps) {
+export default function BlogPostLayout({ frontmatter, children }: BlogPostLayoutProps) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [readingProgress, setReadingProgress] = useState(0)
 
@@ -146,7 +155,7 @@ export default function BlogPost({ frontmatter, mdxSource }: BlogPostProps) {
               </time>
               <span className="w-16 h-px bg-[#D9D7EC]" />
               <span className="font-script text-sm italic">
-                {Math.ceil(mdxSource.compiledSource.length / 1500)} min de lectura
+                5 min de lectura
               </span>
             </motion.div>
 
@@ -206,7 +215,7 @@ export default function BlogPost({ frontmatter, mdxSource }: BlogPostProps) {
             prose-img:rounded-2xl prose-img:shadow-xl
             prose-hr:border-[#D9D7EC]"
           >
-            <MDXRemote {...mdxSource} />
+            {children}
           </div>
         </motion.div>
 

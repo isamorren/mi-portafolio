@@ -1,10 +1,20 @@
----
-title: "Introducción a Next.js 14: El futuro del desarrollo web"
-date: "2025-01-15"
-excerpt: "Descubre las nuevas características de Next.js 14 y cómo pueden mejorar tu flujo de desarrollo con el App Router, Server Components y más."
-tags: ["Next.js", "React", "Web Development"]
-next: "optimizacion-rendimiento-react"
----
+import BlogPostLayout from '@/components/BlogPostLayout'
+
+export const metadata = {
+  title: 'Introducción a Next.js 14: El futuro del desarrollo web | Isabel Moreno',
+  description: 'Descubre las nuevas características de Next.js 14 y cómo pueden mejorar tu flujo de desarrollo con el App Router, Server Components y más.',
+}
+
+export const frontmatter = {
+  title: "Introducción a Next.js 14: El futuro del desarrollo web",
+  date: "2025-01-15",
+  excerpt: "Descubre las nuevas características de Next.js 14 y cómo pueden mejorar tu flujo de desarrollo con el App Router, Server Components y más.",
+  tags: ["Next.js", "React", "Web Development"],
+  next: "optimizacion-rendimiento-react",
+  slug: "introduccion-nextjs-14"
+}
+
+<BlogPostLayout frontmatter={frontmatter}>
 
 Next.js 14 representa un salto significativo en el desarrollo de aplicaciones web modernas. Con la introducción del App Router estable y mejoras sustanciales en el rendimiento, esta versión establece nuevos estándares para el desarrollo con React.
 
@@ -102,3 +112,5 @@ Next.js 14 no es solo una actualización, es una reimaginación de cómo constru
 - [Documentación oficial de Next.js](https://nextjs.org/docs)
 - [Guía de migración al App Router](https://nextjs.org/docs/app/building-your-application/upgrading/app-router-migration)
 - [Ejemplos en GitHub](https://github.com/vercel/next.js/tree/canary/examples)
+
+</BlogPostLayout>

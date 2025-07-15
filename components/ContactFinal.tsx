@@ -384,7 +384,7 @@ const ContactFinal = () => {
           viewport={{ once: true }}
           className="text-center text-white/60 font-script text-xl mt-16 italic"
         >
-          "The road goes on forever and the party never ends"
+&ldquo;The road goes on forever and the party never ends&rdquo;
         </motion.p>
       </div>
 

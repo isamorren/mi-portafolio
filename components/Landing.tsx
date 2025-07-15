@@ -87,7 +87,7 @@ const Landing = () => {
           transition={{ duration: 1.5, delay: 1 }}
           style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.7)' }}
         >
-          "Entre el código y la emoción, construyo belleza funcional."
+&ldquo;Entre el código y la emoción, construyo belleza funcional.&rdquo;
         </motion.p>
 
         {/* CTA Button */}

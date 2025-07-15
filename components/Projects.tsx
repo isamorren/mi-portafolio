@@ -220,7 +220,7 @@ const Projects = () => {
               {project.title}
             </h3>
             <p className="font-script text-lg text-[#322F68] italic leading-relaxed">
-              "{project.verse}"
+&ldquo;{project.verse}&rdquo;
             </p>
           </div>
           
@@ -267,7 +267,7 @@ const Projects = () => {
           
           <div className="border-l-3 border-[#B4A7D6]/50 pl-4 hover:border-[#6667AB] hover:translate-x-1 transition-all duration-300">
             <p className="text-sm font-semibold uppercase tracking-wider text-[#322F68] mb-1">Outro: Aprendizaje</p>
-            <p className="text-[#322F68] italic leading-relaxed">"{project.learning}"</p>
+            <p className="text-[#322F68] italic leading-relaxed">&ldquo;{project.learning}&rdquo;</p>
           </div>
         </div>
 
@@ -368,7 +368,7 @@ const Projects = () => {
                     {project.title}
                   </h3>
                   <p className="font-script text-xl text-[#322F68] italic">
-                    "{project.verse}"
+      &ldquo;{project.verse}&rdquo;
                   </p>
                 </div>
               </div>
@@ -402,7 +402,7 @@ const Projects = () => {
                 
                 <div className="bg-[#D9D7EC]/30 rounded-2xl p-6">
                   <h4 className="font-serif-display text-lg font-bold text-[#1A1A2F] mb-2">Reflexión final</h4>
-                  <p className="text-[#322F68] italic leading-relaxed">"{project.learning}"</p>
+                  <p className="text-[#322F68] italic leading-relaxed">&ldquo;{project.learning}&rdquo;</p>
                 </div>
                 
                 {/* Action button */}

@@ -109,7 +109,7 @@ const About = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
               viewport={{ once: true }}
             >
-              "El mejor código es aquel que no solo funciona, sino que inspira."
+              &ldquo;El mejor código es aquel que no solo funciona, sino que inspira.&rdquo;
             </motion.blockquote>
           </motion.div>
 

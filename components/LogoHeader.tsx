@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 const LogoHeader = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -7,6 +8,7 @@ const LogoHeader = () => {
   const [mounted, setMounted] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const shouldReduce = useReducedMotion();
   
   // Mouse position for interactive effects
   const mouseX = useMotionValue(0);
@@ -280,13 +282,13 @@ const LogoHeader = () => {
                     key={i}
                     className="absolute w-1 h-1 bg-[#6667AB] rounded-full"
                     initial={{ opacity: 0 }}
-                    animate={isHovered ? {
+                    animate={isHovered && !shouldReduce ? {
                       opacity: [0, 0.8, 0],
                       scale: [0, 1.5, 0],
                       x: [0, ((i + 1) * 20 - 50)],
                       y: [0, ((i + 1) * 15 - 40)]
                     } : {}}
-                    transition={{
+                    transition={shouldReduce ? { duration: 0 } : {
                       duration: 2,
                       delay: i * 0.2,
                       repeat: isHovered ? Infinity : 0

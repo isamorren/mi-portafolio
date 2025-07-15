@@ -157,9 +157,9 @@ const ContactFinal = () => {
               value={formData.email}
               onChange={handleInputChange}
               placeholder="Un correo para responder con emoción"
-              className={`w-full px-6 py-4 bg-white/10 backdrop-blur-sm border-2 ${
-                errors.email ? 'border-red-400/50' : 'border-white/20'
-              } rounded-2xl text-white placeholder-white/50 focus:outline-none focus:border-white/40 focus:bg-white/20 transition-all duration-300 font-serif-display`}
+              className={`input-cinematic w-full px-6 py-4 rounded-2xl text-[#322F68] font-serif-display ${
+                errors.email ? 'input-error' : ''
+              }`}
               required
             />
             {errors.email && (
@@ -184,9 +184,9 @@ const ContactFinal = () => {
               onChange={handleInputChange}
               placeholder="Cuéntame tu idea más soñadora..."
               rows={6}
-              className={`w-full px-6 py-4 bg-white/10 backdrop-blur-sm border-2 ${
-                errors.message ? 'border-red-400/50' : 'border-white/20'
-              } rounded-2xl text-white placeholder-white/50 focus:outline-none focus:border-white/40 focus:bg-white/20 transition-all duration-300 font-serif-display resize-none`}
+              className={`input-cinematic w-full px-6 py-4 rounded-2xl text-[#322F68] font-serif-display resize-none ${
+                errors.message ? 'input-error' : ''
+              }`}
               required
             />
             {errors.message && (
@@ -209,7 +209,7 @@ const ContactFinal = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="relative group"
+              className="btn-cinematic relative group"
             >
               {/* Ticket shape */}
               <div className="relative bg-gradient-to-br from-[#E4C7D6] to-[#B4A7D6] px-12 py-6 rounded-2xl shadow-2xl overflow-hidden">
@@ -294,7 +294,7 @@ const ContactFinal = () => {
             href="https://www.linkedin.com/in/isabel-moreno-dev-fullstack-frontend-designer/"
             target="_blank"
             rel="noopener noreferrer"
-            className="relative group"
+            className="glow-cinematic relative group"
             whileHover={{ rotate: -5, scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
@@ -337,7 +337,7 @@ const ContactFinal = () => {
             href="https://github.com/isamorren"
             target="_blank"
             rel="noopener noreferrer"
-            className="relative group"
+            className="glow-cinematic relative group"
             whileHover={{ rotate: 5, scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >

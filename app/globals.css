@@ -4,6 +4,106 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Microinteractions Layer */
+@layer components {
+  /* Button and CTA microinteractions */
+  .btn-cinematic {
+    @apply transition-all duration-300 ease-in-out;
+    @apply hover:scale-[1.02] hover:shadow-lg;
+    @apply active:scale-[0.98] active:shadow-sm;
+  }
+
+  /* Form input microinteractions */
+  .input-cinematic {
+    @apply transition-all duration-300 ease-in-out;
+    @apply border-2 border-[#D9D7EC] bg-white/50 backdrop-blur-sm;
+    @apply focus:border-[#6667AB] focus:bg-white/70 focus:outline-none focus:ring-2 focus:ring-[#6667AB]/20;
+    @apply placeholder:text-[#322F68]/40 placeholder:transition-opacity placeholder:duration-300;
+  }
+
+  .input-cinematic:focus::placeholder {
+    @apply opacity-70;
+  }
+
+  /* Input states */
+  .input-error {
+    @apply border-[#E4C7D6] bg-red-50/30 focus:border-[#E4C7D6] focus:ring-[#E4C7D6]/20;
+  }
+
+  .input-success {
+    @apply border-[#B4A7D6] bg-green-50/30 focus:border-[#B4A7D6] focus:ring-[#B4A7D6]/20;
+  }
+
+  /* Navigation link hover effects */
+  .nav-link-cinematic {
+    @apply relative transition-all duration-300 ease-in-out;
+    @apply hover:text-[#6667AB];
+  }
+
+  .nav-link-cinematic::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-[2px] bg-[#6667AB];
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  .nav-link-cinematic:hover::after {
+    @apply w-full;
+  }
+
+  /* Alternative navigation style with opacity */
+  .nav-link-fade {
+    @apply transition-opacity duration-300 ease-in-out opacity-70;
+    @apply hover:opacity-100;
+  }
+
+  /* Reduced motion overrides */
+  @media (prefers-reduced-motion: reduce) {
+    .btn-cinematic,
+    .input-cinematic,
+    .nav-link-cinematic,
+    .nav-link-fade {
+      @apply transition-none;
+    }
+
+    .btn-cinematic {
+      @apply hover:scale-100 active:scale-100;
+    }
+
+    .nav-link-cinematic::after {
+      @apply transition-none;
+    }
+
+    .nav-link-cinematic:hover::after {
+      @apply w-0;
+    }
+  }
+}
+
+/* Additional subtle animations */
+@layer utilities {
+  /* Smooth shadow transitions */
+  .shadow-cinematic {
+    @apply shadow-sm transition-shadow duration-300 ease-in-out;
+    @apply hover:shadow-md;
+  }
+
+  /* Subtle glow effect */
+  .glow-cinematic {
+    @apply transition-all duration-300 ease-in-out;
+    @apply hover:drop-shadow-[0_0_15px_rgba(102,103,171,0.3)];
+  }
+
+  /* Smooth opacity transitions */
+  .fade-cinematic {
+    @apply transition-opacity duration-300 ease-in-out;
+  }
+
+  /* Text color transitions */
+  .text-cinematic {
+    @apply transition-colors duration-300 ease-in-out;
+  }
+}
+
 /* Screen reader only text */
 .sr-only {
   position: absolute;

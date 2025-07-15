@@ -54,7 +54,7 @@ const HeroMinimal = () => {
         <div className="flex flex-col sm:flex-row gap-6 justify-center">
           <motion.a 
             href="#projects" 
-            className="group relative px-8 py-3 overflow-hidden"
+            className="btn-cinematic group relative px-8 py-3 overflow-hidden rounded-lg shadow-md"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -64,7 +64,7 @@ const HeroMinimal = () => {
           
           <motion.a 
             href="#contact-final" 
-            className="px-8 py-3 border-2 border-[#6667AB] text-[#6667AB] hover:bg-[#6667AB] hover:text-[#F6F4F9] transition-colors duration-300 font-serif-display"
+            className="btn-cinematic px-8 py-3 border-2 border-[#6667AB] text-[#6667AB] hover:bg-[#6667AB] hover:text-[#F6F4F9] font-serif-display rounded-lg"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

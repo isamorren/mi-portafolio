@@ -1,11 +1,16 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { useReducedMotion, getScrollAnimationConfig, getContinuousAnimationConfig } from "@/hooks/useReducedMotion";
 
 const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
   const [currentPage, setCurrentPage] = useState(0);
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
   const projectsPerPage = 3;
+  
+  const shouldReduce = useReducedMotion();
+  const scrollAnimConfig = getScrollAnimationConfig(shouldReduce);
+  const continuousAnimConfig = getContinuousAnimationConfig(shouldReduce);
 
   const projects = [
     {
@@ -340,7 +345,7 @@ const Projects = () => {
 
                     {/* Play button */}
                     <motion.button
-                      className="absolute bottom-4 right-4 w-10 h-10 bg-[#6667AB] text-white rounded-full flex items-center justify-center shadow-lg"
+                      className="btn-cinematic absolute bottom-4 right-4 w-10 h-10 bg-[#6667AB] text-white rounded-full flex items-center justify-center shadow-lg"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
                       animate={{
@@ -367,7 +372,7 @@ const Projects = () => {
         >
           <button
             onClick={prevPage}
-            className="w-12 h-12 rounded-full bg-[#D9D7EC] hover:bg-[#B4A7D6] transition-colors flex items-center justify-center text-[#322F68]"
+            className="btn-cinematic w-12 h-12 rounded-full bg-[#D9D7EC] hover:bg-[#B4A7D6] flex items-center justify-center text-[#322F68] shadow-md"
             aria-label="Página anterior"
           >
             ←
@@ -390,7 +395,7 @@ const Projects = () => {
 
           <button
             onClick={nextPage}
-            className="w-12 h-12 rounded-full bg-[#D9D7EC] hover:bg-[#B4A7D6] transition-colors flex items-center justify-center text-[#322F68]"
+            className="btn-cinematic w-12 h-12 rounded-full bg-[#D9D7EC] hover:bg-[#B4A7D6] flex items-center justify-center text-[#322F68] shadow-md"
             aria-label="Página siguiente"
           >
             →
@@ -410,9 +415,9 @@ const Projects = () => {
               onClick={() => setSelectedProject(null)}
             />
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
+              initial={shouldReduce ? { opacity: 0 } : { opacity: 0, scale: 0.9 }}
+              animate={shouldReduce ? { opacity: 1 } : { opacity: 1, scale: 1 }}
+              exit={shouldReduce ? { opacity: 0 } : { opacity: 0, scale: 0.9 }}
               className="fixed inset-x-4 top-[10%] bottom-[10%] max-w-4xl mx-auto bg-gradient-to-br from-[#F6F4F9] to-[#D9D7EC] rounded-3xl shadow-2xl z-50 overflow-y-auto"
             >
               <div className="p-8">
@@ -435,8 +440,8 @@ const Projects = () => {
                           {/* Vinyl Record Visual */}
                           <motion.div 
                             className="w-32 h-32 relative"
-                            animate={{ rotate: 360 }}
-                            transition={{ duration: 4, ease: "linear", repeat: Infinity }}
+                            animate={shouldReduce ? {} : { rotate: 360 }}
+                            transition={shouldReduce ? { duration: 0 } : { duration: 4, ease: "linear", repeat: Infinity }}
                           >
                             <div className="w-full h-full rounded-full bg-[#322F68] shadow-xl">
                               <div className="absolute inset-4 rounded-full bg-[#6667AB]">
@@ -503,8 +508,8 @@ const Projects = () => {
                                 <motion.div 
                                   key={tool} 
                                   className="flex items-center gap-2 bg-white/50 rounded-lg p-2"
-                                  whileHover={{ scale: 1.05 }}
-                                  transition={{ type: "spring", stiffness: 300 }}
+                                  whileHover={shouldReduce ? {} : { scale: 1.05 }}
+                                  transition={shouldReduce ? { duration: 0 } : { type: "spring", stiffness: 300 }}
                                 >
                                   <span className="text-2xl">{project.techIcons[tool as keyof typeof project.techIcons]}</span>
                                   <span className="text-sm text-[#322F68] font-medium">{tool}</span>
@@ -537,9 +542,9 @@ const Projects = () => {
                             href={project.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 bg-[#6667AB] text-white px-6 py-3 rounded-full hover:bg-[#322F68] transition-colors shadow-lg"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
+                            className="btn-cinematic inline-flex items-center gap-2 bg-[#6667AB] text-white px-6 py-3 rounded-full hover:bg-[#322F68] shadow-lg"
+                            whileHover={shouldReduce ? {} : { scale: 1.05 }}
+                            whileTap={shouldReduce ? {} : { scale: 0.95 }}
                           >
                             <span>Escuchar en GitHub</span>
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -549,9 +554,9 @@ const Projects = () => {
                           
                           <motion.button
                             onClick={() => setSelectedProject(null)}
-                            className="px-6 py-3 border-2 border-[#6667AB] text-[#6667AB] rounded-full hover:bg-[#6667AB] hover:text-white transition-colors"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
+                            className="btn-cinematic px-6 py-3 border-2 border-[#6667AB] text-[#6667AB] rounded-full hover:bg-[#6667AB] hover:text-white"
+                            whileHover={shouldReduce ? {} : { scale: 1.05 }}
+                            whileTap={shouldReduce ? {} : { scale: 0.95 }}
                           >
                             Cerrar
                           </motion.button>

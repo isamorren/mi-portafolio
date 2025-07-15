@@ -117,7 +117,7 @@ const Navigation = () => {
               {/* Navigation dot */}
               <motion.a
                 href={item.href}
-                className="relative w-6 h-6 rounded-full border-2 border-[#6667AB] bg-[#F6F4F9] cursor-pointer overflow-hidden group"
+                className="nav-link-fade relative w-6 h-6 rounded-full border-2 border-[#6667AB] bg-[#F6F4F9] cursor-pointer overflow-hidden group shadow-cinematic"
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}
                 style={{

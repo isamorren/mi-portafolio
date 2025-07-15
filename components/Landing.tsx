@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { useReducedMotion, getAnimationConfig, getScrollAnimationConfig } from "@/hooks/useReducedMotion";
 
 const Landing = () => {
   const [isVisible, setIsVisible] = useState(true);
+  const shouldReduce = useReducedMotion();
+  const animConfig = getAnimationConfig(shouldReduce);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -93,22 +96,22 @@ const Landing = () => {
         {/* CTA Button */}
         <motion.div
           className="flex justify-center mb-16"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 1.5 }}
+          initial={shouldReduce ? { opacity: 0 } : { opacity: 0, scale: 0.9 }}
+          animate={shouldReduce ? { opacity: 1 } : { opacity: 1, scale: 1 }}
+          transition={shouldReduce ? { duration: 0.2 } : { duration: 1, delay: 1.5 }}
         >
           <button
             onClick={scrollToContent}
-            className="group relative px-8 py-4 bg-[#6667AB] text-white font-serif-display text-lg rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden focus:outline-none focus:ring-4 focus:ring-[#6667AB]/50"
+            className={`btn-cinematic group relative px-8 py-4 bg-[#6667AB] text-white font-serif-display text-lg rounded-2xl shadow-lg overflow-hidden focus:outline-none focus:ring-4 focus:ring-[#6667AB]/50`}
             aria-label="Explorar el contenido del portfolio"
           >
             {/* Gradient overlay for hover */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#B4A7D6] to-[#6667AB] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className={`absolute inset-0 bg-gradient-to-r from-[#B4A7D6] to-[#6667AB] opacity-0 group-hover:opacity-100 transition-opacity ${shouldReduce ? 'duration-100' : 'duration-300'}`} />
             
             {/* Pulse animation */}
-            <div className="absolute inset-0 bg-white/20 rounded-2xl opacity-0 group-hover:opacity-100 group-hover:animate-pulse" />
+            <div className={`absolute inset-0 bg-white/20 rounded-2xl opacity-0 group-hover:opacity-100 ${shouldReduce ? '' : 'group-hover:animate-pulse'}`} />
             
-            <span className="relative z-10 group-hover:text-white transition-colors duration-300">
+            <span className={`relative z-10 group-hover:text-white transition-colors ${shouldReduce ? 'duration-100' : 'duration-300'}`}>
               Explorar mi universo
             </span>
           </button>
@@ -127,8 +130,8 @@ const Landing = () => {
         <motion.div
           className="flex flex-col items-center cursor-pointer group"
           onClick={scrollToContent}
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          animate={shouldReduce ? {} : { y: [0, 8, 0] }}
+          transition={shouldReduce ? { duration: 0 } : { duration: 2, repeat: Infinity, ease: "easeInOut" }}
           aria-label="Hacer scroll para ver más contenido"
         >
           <span className="text-white/80 text-sm mb-2 font-serif-display group-hover:text-white transition-colors">
@@ -142,7 +145,7 @@ const Landing = () => {
             viewBox="0 0 24 24" 
             fill="none" 
             className="text-white/80 group-hover:text-white transition-colors"
-            whileHover={{ scale: 1.1 }}
+            whileHover={shouldReduce ? {} : { scale: 1.1 }}
           >
             <motion.path 
               d="M12 5L12 19M12 19L5 12M12 19L19 12" 

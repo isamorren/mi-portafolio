@@ -127,7 +127,7 @@ const Landing = () => {
 
       {/* Animated Scroll Indicator */}
       <motion.div
-        className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-opacity duration-500 ${
+        className={`absolute bottom-8 left-0 right-0 flex justify-center transition-opacity duration-500 ${
           isVisible ? 'opacity-100' : 'opacity-0'
         }`}
         initial={{ opacity: 0, y: 20 }}
@@ -135,13 +135,13 @@ const Landing = () => {
         transition={{ duration: 1, delay: 2 }}
       >
         <motion.div
-          className="flex flex-col items-center cursor-pointer group"
+          className="flex flex-col items-center justify-center cursor-pointer group"
           onClick={scrollToContent}
           animate={shouldReduce ? {} : { y: [0, 8, 0] }}
           transition={shouldReduce ? { duration: 0 } : { duration: 2, repeat: Infinity, ease: "easeInOut" }}
           aria-label="Hacer scroll para ver más contenido"
         >
-          <span className="text-white/80 text-sm mb-2 font-serif-display group-hover:text-white transition-colors">
+          <span className="text-white/80 text-sm mb-2 font-serif-display group-hover:text-white transition-colors text-center">
             Scroll
           </span>
           

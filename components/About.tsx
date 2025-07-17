@@ -96,7 +96,7 @@ const About = () => {
                 Hoy combino <em className="italic font-serif-display">ambos mundos</em>: 
                 diseño interfaces que respiran, escribo código que cuenta historias, 
                 y creo experiencias digitales donde la funcionalidad y la belleza danzan juntas. 
-                Cada proyecto es una sinfonía donde la <strong className="font-serif-display">lógica técnica</strong> 
+                Cada proyecto es una sinfonía donde la <strong className="font-serif-display">lógica técnica</strong>{' '}
                 se encuentra con la <strong className="font-serif-display">intuición creativa</strong>.
               </p>
             </motion.div>

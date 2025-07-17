@@ -154,7 +154,7 @@ const LogoHeader = () => {
                     y1="25"
                     x2="40"
                     y2="55"
-                    stroke="#322F68"
+                    stroke="#E4C7D6"
                     strokeWidth="3"
                     strokeLinecap="round"
                   />
@@ -171,7 +171,7 @@ const LogoHeader = () => {
                 <motion.path
                   d="M 55,55 L 55,25 L 70,40 L 85,25 L 85,55"
                   fill="none"
-                  stroke="#322F68"
+                  stroke="#E4C7D6"
                   strokeWidth="3"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -195,7 +195,7 @@ const LogoHeader = () => {
                 <motion.text
                   x="110"
                   y="48"
-                  className="font-script text-2xl fill-[#322F68]"
+                  className="font-script text-2xl fill-[#E4C7D6]"
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 1.2 }}
@@ -310,7 +310,7 @@ const LogoHeader = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 1.5 }}
           >
-            <p className="text-xs text-[#322F68]/60 font-mono tracking-wider">
+            <p className="text-xs text-[#E4C7D6] font-mono tracking-wider">
               STRATEGIC DIGITAL CRAFT
             </p>
           </motion.div>

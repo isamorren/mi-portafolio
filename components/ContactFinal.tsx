@@ -1,100 +1,6 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
-import { sanitizeText, isValidEmail } from "@/lib/security";
+import { motion } from "framer-motion";
 
 const ContactFinal = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-  
-  const [errors, setErrors] = useState({
-    name: false,
-    email: false,
-    message: false
-  });
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showSuccess, setShowSuccess] = useState(false);
-  const [showError, setShowError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    
-    // Clear error when user starts typing
-    if (errors[name as keyof typeof errors]) {
-      setErrors(prev => ({ ...prev, [name]: false }));
-    }
-  };
-
-  const validateForm = () => {
-    const newErrors = {
-      name: !formData.name.trim(),
-      email: !formData.email.trim() || !isValidEmail(formData.email),
-      message: !formData.message.trim()
-    };
-    
-    setErrors(newErrors);
-    return !Object.values(newErrors).some(error => error);
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!validateForm()) return;
-    
-    setIsSubmitting(true);
-    
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: sanitizeText(formData.name, 100),
-          email: sanitizeText(formData.email, 254),
-          message: sanitizeText(formData.message, 1000)
-        })
-      });
-      
-      const data = await response.json();
-      
-      if (!response.ok) {
-        if (response.status === 429) {
-          setErrorMessage('Has enviado demasiados mensajes. Por favor, intenta más tarde.');
-        } else {
-          setErrorMessage(data.error || 'Error al enviar el mensaje');
-        }
-        setShowError(true);
-        setTimeout(() => {
-          setShowError(false);
-          setErrorMessage('');
-        }, 5000);
-        return;
-      }
-      
-      setShowSuccess(true);
-      setFormData({ name: '', email: '', message: '' });
-      
-      setTimeout(() => setShowSuccess(false), 5000);
-      
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setErrorMessage('Error de conexión. Por favor, intenta nuevamente.');
-      setShowError(true);
-      setTimeout(() => {
-        setShowError(false);
-        setErrorMessage('');
-      }, 5000);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <section id="contact-final" className="relative min-h-screen flex items-center justify-center py-20 px-6 overflow-hidden">
       {/* Background image - American road/sunset */}
@@ -127,7 +33,7 @@ const ContactFinal = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
           <h2 className="mb-6">
             <span className="font-script text-5xl md:text-7xl text-white block mb-2">
@@ -150,200 +56,13 @@ const ContactFinal = () => {
           />
         </motion.div>
 
-        {/* Form */}
-        <motion.form
-          onSubmit={handleSubmit}
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="space-y-6 max-w-2xl mx-auto"
-        >
-          {/* Name field */}
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.2 }}
-          >
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleInputChange}
-              placeholder="Tu nombre, como te gustaría que te recordaran"
-              className={`w-full px-6 py-4 bg-white/10 backdrop-blur-sm border-2 ${
-                errors.name ? 'border-red-400/50' : 'border-white/20'
-              } rounded-2xl text-white placeholder-white/50 focus:outline-none focus:border-white/40 focus:bg-white/20 transition-all duration-300 font-serif-display`}
-              required
-            />
-            {errors.name && (
-              <motion.p 
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="mt-2 text-[#E4C7D6] text-sm font-serif-display"
-              >
-                Por favor, comparte tu nombre conmigo
-              </motion.p>
-            )}
-          </motion.div>
-
-          {/* Email field */}
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.2 }}
-          >
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-              placeholder="Un correo para responder con emoción"
-              className={`input-cinematic w-full px-6 py-4 rounded-2xl text-[#322F68] font-serif-display ${
-                errors.email ? 'input-error' : ''
-              }`}
-              required
-            />
-            {errors.email && (
-              <motion.p 
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="mt-2 text-[#E4C7D6] text-sm font-serif-display"
-              >
-                Necesito un correo válido para conectarnos
-              </motion.p>
-            )}
-          </motion.div>
-
-          {/* Message field */}
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.2 }}
-          >
-            <textarea
-              name="message"
-              value={formData.message}
-              onChange={handleInputChange}
-              placeholder="Cuéntame tu idea más soñadora..."
-              rows={6}
-              className={`input-cinematic w-full px-6 py-4 rounded-2xl text-[#322F68] font-serif-display resize-none ${
-                errors.message ? 'input-error' : ''
-              }`}
-              required
-            />
-            {errors.message && (
-              <motion.p 
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="mt-2 text-[#E4C7D6] text-sm font-serif-display"
-              >
-                Comparte tu visión, por pequeña que sea
-              </motion.p>
-            )}
-          </motion.div>
-
-          {/* Submit button - Concert ticket style */}
-          <motion.div
-            className="flex justify-center pt-6"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="btn-cinematic relative group"
-            >
-              {/* Ticket shape */}
-              <div className="relative bg-gradient-to-br from-[#E4C7D6] to-[#B4A7D6] px-12 py-6 rounded-2xl shadow-2xl overflow-hidden">
-                {/* Perforations */}
-                <div className="absolute top-0 left-0 w-full flex justify-around">
-                  {[...Array(12)].map((_, i) => (
-                    <div key={i} className="w-2 h-3 bg-[#1A1A2F]/10 rounded-b-full" />
-                  ))}
-                </div>
-                <div className="absolute bottom-0 left-0 w-full flex justify-around">
-                  {[...Array(12)].map((_, i) => (
-                    <div key={i} className="w-2 h-3 bg-[#1A1A2F]/10 rounded-t-full" />
-                  ))}
-                </div>
-                
-                {/* Heartbeat animation */}
-                <motion.div
-                  className="absolute inset-0 bg-white/20"
-                  animate={{
-                    scale: [1, 1.05, 1],
-                    opacity: [0.3, 0.1, 0.3]
-                  }}
-                  transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                />
-                
-                {/* Button text */}
-                <span className="relative font-serif-display text-xl text-[#1A1A2F] font-bold">
-                  {isSubmitting ? (
-                    <motion.span
-                      animate={{ opacity: [1, 0.5, 1] }}
-                      transition={{ duration: 1, repeat: Infinity }}
-                    >
-                      Enviando...
-                    </motion.span>
-                  ) : (
-                    'Construyamos algo juntos'
-                  )}
-                </span>
-                
-                {/* Ticket details */}
-                <div className="absolute top-2 right-4 text-xs text-[#1A1A2F]/50 font-script">
-                  Admit One
-                </div>
-                <div className="absolute bottom-2 left-4 text-xs text-[#1A1A2F]/50 font-script">
-                  ♥ 2025 ♥
-                </div>
-              </div>
-            </button>
-          </motion.div>
-
-          {/* Success message */}
-          <AnimatePresence>
-            {showSuccess && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                className="text-center mt-6"
-              >
-                <p className="text-white font-script text-2xl">
-                  ¡Tu mensaje vuela hacia mí! 💌
-                </p>
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          {/* Error message */}
-          <AnimatePresence>
-            {showError && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                className="text-center mt-6"
-              >
-                <p className="text-[#E4C7D6] font-serif-display text-lg">
-                  {errorMessage}
-                </p>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </motion.form>
-
         {/* Social links - Vintage stickers */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
           viewport={{ once: true }}
-          className="flex justify-center gap-8 mt-16"
+          className="flex justify-center gap-8"
         >
           {/* LinkedIn Sticker */}
           <motion.a
@@ -430,18 +149,48 @@ const ContactFinal = () => {
               </motion.div>
             </div>
           </motion.a>
-        </motion.div>
 
-        {/* Decorative quote */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center text-white/60 font-script text-xl mt-16 italic"
-        >
-&ldquo;The road goes on forever and the party never ends&rdquo;
-        </motion.p>
+          {/* Email Sticker */}
+          <motion.a
+            href="mailto:isamoreoc08@gmail.com?subject=Colaboremos%20juntos&body=Hola%20Isa,%0A%0ATe%20escribe%20%7BTu%20nombre%7D%20y%20estoy%20interesado(a)%20en%20los%20siguientes%20servicios:%0A%0A-%20%0A-%20%0A%0A¿Qué%20espacio%20tienes%20disponible%20para%20una%20reunión?%0A%0ASaludos,"
+            className="glow-cinematic relative group"
+            whileHover={{ rotate: -5, scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <div className="relative">
+              {/* Sticker base */}
+              <div className="w-24 h-24 bg-gradient-to-br from-[#E4C7D6] to-[#D9D7EC] rounded-full shadow-lg relative overflow-hidden border-4 border-white">
+                {/* Vintage texture */}
+                <div className="absolute inset-0 opacity-30" 
+                  style={{
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='roughPaper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5' numOctaves='5' result='noise' seed='3'/%3E%3CfeDiffuseLighting in='noise' lighting-color='white' surfaceScale='1'%3E%3CfeDistantLight azimuth='45' elevation='60'/%3E%3C/feDiffuseLighting%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23roughPaper)'/%3E%3C/svg%3E")`
+                  }}
+                />
+                
+                {/* Icon */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <svg className="w-12 h-12 text-[#322F68]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                
+                {/* Stamp effect */}
+                <div className="absolute -bottom-1 -right-1 w-8 h-8 bg-[#B4A7D6] rounded-full flex items-center justify-center transform rotate-12 border-2 border-white">
+                  <span className="text-white text-xs font-bold">@</span>
+                </div>
+              </div>
+              
+              {/* Label */}
+              <motion.div 
+                className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity"
+                initial={{ y: -10 }}
+                whileHover={{ y: 0 }}
+              >
+                <p className="text-white text-sm font-script whitespace-nowrap">Email</p>
+              </motion.div>
+            </div>
+          </motion.a>
+        </motion.div>
       </div>
 
       {/* Decorative elements */}
